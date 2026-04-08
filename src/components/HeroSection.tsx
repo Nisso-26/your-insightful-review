@@ -1,7 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import mairieTours from "@/assets/mairie-tours.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const HeroSection = () => {
   const ref = useScrollReveal();
@@ -36,7 +35,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-start gap-4" data-reveal data-reveal-delay="300">
             <Link
               to="/contact"
-              className="group flex items-center justify-center gap-2 rounded-none bg-accent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
+              className="flex items-center justify-center gap-2 rounded-none bg-accent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
             >
               Réserver un audit gratuit
             </Link>
@@ -58,13 +57,11 @@ const HeroSection = () => {
             height={1080}
             className="absolute inset-0 h-full w-full object-cover opacity-50"
           />
-          {/* Gradient overlay from left */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/70 to-transparent" />
-          {/* Subtle green tint */}
           <div className="absolute inset-0 bg-primary/30" />
         </div>
 
-        {/* Mobile: show image as subtle background */}
+        {/* Mobile: subtle background */}
         <div className="absolute inset-0 lg:hidden">
           <img
             src={mairieTours}

@@ -1,10 +1,8 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 const MentionsLegales = () => (
-  <>
-    <Navbar />
-    <main className="pt-32 pb-24 bg-background">
+  <Layout>
+    <div className="py-12 bg-background">
       <div className="container mx-auto px-6 max-w-3xl">
         <h1 className="font-display text-4xl font-light text-primary mb-8">Mentions légales</h1>
 
@@ -15,8 +13,8 @@ const MentionsLegales = () => (
               <strong>HUNTERS SAS</strong><br />
               45 rue Michel Colombe, 37000 Tours<br />
               SIRET : 879 176 949 00029<br />
-              Email : contact@huntersimmobilier.fr<br />
-              Téléphone : 06 50 15 22 87
+              Email : hunters@huntersimmobilier.fr<br />
+              Téléphone : 02 59 16 03 37
             </p>
           </section>
 
@@ -36,7 +34,7 @@ const MentionsLegales = () => (
 
           <section>
             <h2 className="font-display text-xl font-medium text-primary mb-3">Hébergement</h2>
-            <p>Ce site est hébergé par Vercel Inc. / OVH SAS.</p>
+            <p>Ce site est hébergé par Lovable (lovable.dev).</p>
           </section>
 
           <section>
@@ -48,9 +46,8 @@ const MentionsLegales = () => (
           </section>
         </div>
       </div>
-    </main>
-    <Footer />
-  </>
+    </div>
+  </Layout>
 );
 
 export default MentionsLegales;

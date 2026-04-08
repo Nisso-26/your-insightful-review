@@ -14,7 +14,6 @@ const AgenceSection = () => {
         </h2>
 
         <div className="grid gap-16 lg:grid-cols-2">
-          {/* Text */}
           <div className="space-y-6" data-reveal data-reveal-delay="200">
             <p className="font-body text-sm leading-relaxed text-muted-foreground">
               Hunters Immobilier est bien plus qu'une simple agence immobilière. C'est une maison d'expertise patrimoniale, un partenaire de confiance, une passerelle vers la liberté financière pour celles et ceux qui veulent faire de l'immobilier un levier concret d'enrichissement.
@@ -50,24 +49,19 @@ const AgenceSection = () => {
             </Link>
           </div>
 
-          {/* Photo grid */}
+          {/* Placeholder grid for photos - with fallback */}
           <div className="grid grid-cols-2 gap-3" data-reveal data-reveal-delay="350">
             {[
-              { src: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC06633-1024x683.jpg", alt: "Agence Hunters Immobilier Tours", tall: false },
-              { src: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC06626-683x1024.jpg", alt: "Hunters Immobilier bureau Tours", tall: true },
-              { src: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC06673-1-1024x683.jpg", alt: "Équipe Hunters Immobilier", tall: true },
-              { src: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC06660-683x1024.jpg", alt: "Hunters Immobilier agence Tours", tall: false },
+              { alt: "Agence Hunters Immobilier Tours", color: "bg-primary/10" },
+              { alt: "Bureau Hunters Immobilier Tours", color: "bg-primary/15" },
+              { alt: "Équipe Hunters Immobilier", color: "bg-primary/10" },
+              { alt: "Espace Hunters Immobilier Tours", color: "bg-primary/15" },
             ].map((photo, i) => (
               <div
                 key={i}
-                className={`overflow-hidden rounded-lg ${photo.tall ? "row-span-2" : ""}`}
+                className={`overflow-hidden rounded-lg ${i === 1 || i === 2 ? "row-span-2" : ""} ${photo.color} flex items-center justify-center min-h-[160px]`}
               >
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                <span className="font-display text-lg text-primary/30 italic text-center px-4">{photo.alt}</span>
               </div>
             ))}
           </div>

@@ -1,10 +1,8 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 const Confidentialite = () => (
-  <>
-    <Navbar />
-    <main className="pt-32 pb-24 bg-background">
+  <Layout>
+    <div className="py-12 bg-background">
       <div className="container mx-auto px-6 max-w-3xl">
         <h1 className="font-display text-4xl font-light text-primary mb-8">Politique de confidentialité</h1>
 
@@ -13,7 +11,7 @@ const Confidentialite = () => (
             <h2 className="font-display text-xl font-medium text-primary mb-3">Responsable du traitement</h2>
             <p>
               <strong>HUNTERS SAS</strong> — 45 rue Michel Colombe, 37000 Tours<br />
-              Email : contact@huntersimmobilier.fr
+              Email : hunters@huntersimmobilier.fr
             </p>
           </section>
 
@@ -44,7 +42,7 @@ const Confidentialite = () => (
             <p>
               Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement
               et de portabilité de vos données. Pour exercer ces droits, contactez-nous à :
-              contact@huntersimmobilier.fr
+              hunters@huntersimmobilier.fr
             </p>
           </section>
 
@@ -62,9 +60,8 @@ const Confidentialite = () => (
           </section>
         </div>
       </div>
-    </main>
-    <Footer />
-  </>
+    </div>
+  </Layout>
 );
 
 export default Confidentialite;
