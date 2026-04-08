@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projectTypes = [
@@ -38,18 +39,18 @@ const ContactSection = () => {
               Démarrons <em className="italic text-accent">votre projet</em>
             </h2>
             <p className="font-body text-sm leading-relaxed text-white/60 mb-10 max-w-md" data-reveal data-reveal-delay="200">
-              Remplissez le formulaire ci-contre et un expert HUNTERS vous contacte sous 24 heures
+              Remplissez le formulaire ci-contre et un expert Hunters vous contacte sous 24 heures
               pour discuter de votre projet d'investissement.
             </p>
 
             <div className="space-y-5" data-reveal data-reveal-delay="300">
-              <a href="tel:0650152287" className="flex items-center gap-4 text-white/80 hover:text-accent transition-colors">
+              <a href="tel:0259160337" className="flex items-center gap-4 text-white/80 hover:text-accent transition-colors">
                 <Phone className="h-5 w-5 text-accent" />
-                <span className="font-body text-sm">06 50 15 22 87</span>
+                <span className="font-body text-sm">02 59 16 03 37</span>
               </a>
-              <a href="mailto:contact@huntersimmobilier.fr" className="flex items-center gap-4 text-white/80 hover:text-accent transition-colors">
+              <a href="mailto:hunters@huntersimmobilier.fr" className="flex items-center gap-4 text-white/80 hover:text-accent transition-colors">
                 <Mail className="h-5 w-5 text-accent" />
-                <span className="font-body text-sm">contact@huntersimmobilier.fr</span>
+                <span className="font-body text-sm">hunters@huntersimmobilier.fr</span>
               </a>
               <div className="flex items-center gap-4 text-white/80">
                 <MapPin className="h-5 w-5 text-accent" />
@@ -61,7 +62,7 @@ const ContactSection = () => {
           <div className="rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 p-8" data-reveal data-reveal-delay="200">
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500">
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary">
                   <Check className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="font-display text-2xl font-medium text-white mb-2">Demande envoyée</h3>
@@ -87,7 +88,7 @@ const ContactSection = () => {
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required className="mt-1 accent-accent" />
                   <span className="font-body text-xs text-white/50">
-                    J'accepte la{" "}<a href="/confidentialite" className="text-accent underline">politique de confidentialité</a>
+                    J'accepte la{" "}<Link to="/confidentialite" className="text-accent underline">politique de confidentialité</Link>
                   </span>
                 </label>
                 <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-sm bg-accent py-4 font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg">

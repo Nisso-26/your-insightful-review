@@ -27,6 +27,7 @@ const Footer = () => (
           <div className="space-y-2">
             <Link to="/equipe" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">L'équipe</Link>
             <Link to="/methode" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Notre méthode</Link>
+            <Link to="/realisations" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réalisations</Link>
             <Link to="/temoignages" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Témoignages</Link>
             <Link to="/contact" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réserver un audit</Link>
           </div>
