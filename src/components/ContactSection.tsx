@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
+import { useState, useRef } from "react";
+import { Phone, Mail, MapPin, ArrowRight, Check, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const projectTypes = [
   "Investissement locatif (résidentiel)",
@@ -21,11 +23,37 @@ const budgets = [
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
   const ref = useScrollReveal();
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    const form = formRef.current!;
+    const formData = new FormData(form);
+
+    const { error } = await supabase.from("contact_leads").insert({
+      first_name: formData.get("first_name") as string,
+      last_name: formData.get("last_name") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || null,
+      project_type: (formData.get("project_type") as string) || null,
+      budget: (formData.get("budget") as string) || null,
+      message: (formData.get("message") as string) || null,
+      consent,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      toast({ title: "Erreur", description: "Une erreur est survenue. Veuillez réessayer.", variant: "destructive" });
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -69,31 +97,30 @@ const ContactSection = () => {
                 <p className="font-body text-sm text-white/60">Nous vous contactons sous 24h. ✓</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <input type="text" placeholder="Votre prénom" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
-                  <input type="text" placeholder="Votre nom" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
+                  <input type="text" name="first_name" placeholder="Votre prénom" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
+                  <input type="text" name="last_name" placeholder="Votre nom" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
                 </div>
-                <input type="email" placeholder="votre@email.fr" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
-                <input type="tel" placeholder="06 XX XX XX XX" className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
-                <select required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white/70 focus:border-accent focus:outline-none transition-colors">
+                <input type="email" name="email" placeholder="votre@email.fr" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
+                <input type="tel" name="phone" placeholder="06 XX XX XX XX" className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors" />
+                <select name="project_type" required className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white/70 focus:border-accent focus:outline-none transition-colors">
                   <option value="" className="text-foreground">Sélectionnez votre projet</option>
                   {projectTypes.map((p) => (<option key={p} value={p} className="text-foreground">{p}</option>))}
                 </select>
-                <select className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white/70 focus:border-accent focus:outline-none transition-colors">
+                <select name="budget" className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white/70 focus:border-accent focus:outline-none transition-colors">
                   <option value="" className="text-foreground">Votre budget envisagé</option>
                   {budgets.map((b) => (<option key={b} value={b} className="text-foreground">{b}</option>))}
                 </select>
-                <textarea placeholder="Décrivez votre projet, vos objectifs..." rows={4} className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors resize-none" />
+                <textarea name="message" placeholder="Décrivez votre projet, vos objectifs..." rows={4} className="w-full rounded-sm bg-white/10 border border-white/10 px-4 py-3 font-body text-sm text-white placeholder:text-white/30 focus:border-accent focus:outline-none transition-colors resize-none" />
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required className="mt-1 accent-accent" />
                   <span className="font-body text-xs text-white/50">
                     J'accepte la{" "}<Link to="/confidentialite" className="text-accent underline">politique de confidentialité</Link>
                   </span>
                 </label>
-                <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-sm bg-accent py-4 font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg">
-                  Envoyer ma demande
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <button type="submit" disabled={loading} className="group flex w-full items-center justify-center gap-2 rounded-sm bg-accent py-4 font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg disabled:opacity-60">
+                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Envoyer ma demande <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>}
                 </button>
                 <p className="text-center font-body text-[10px] text-white/30">Vos données sont confidentielles et ne sont jamais partagées avec des tiers.</p>
               </form>
