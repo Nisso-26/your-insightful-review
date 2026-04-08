@@ -1,27 +1,10 @@
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ProcessSection from "@/components/ProcessSection";
-import TeamSection from "@/components/TeamSection";
-import StatsSection from "@/components/StatsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 
 const Index = () => (
-  <>
-    <Navbar />
-    <main>
-      <HeroSection />
-      <ExpertiseSection />
-      <ProcessSection />
-      <TeamSection />
-      <StatsSection />
-      <TestimonialsSection />
-      <ContactSection />
-    </main>
-    <Footer />
-  </>
+  <Layout>
+    <HeroSection />
+  </Layout>
 );
 
 export default Index;
