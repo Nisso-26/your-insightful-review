@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { Phone, Mail, MapPin, ArrowRight, Check } from "lucide-react";
+import { useState, useRef } from "react";
+import { Phone, Mail, MapPin, ArrowRight, Check, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const projectTypes = [
   "Investissement locatif (résidentiel)",
@@ -21,11 +23,37 @@ const budgets = [
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
   const ref = useScrollReveal();
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    const form = formRef.current!;
+    const formData = new FormData(form);
+
+    const { error } = await supabase.from("contact_leads").insert({
+      first_name: formData.get("first_name") as string,
+      last_name: formData.get("last_name") as string,
+      email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || null,
+      project_type: (formData.get("project_type") as string) || null,
+      budget: (formData.get("budget") as string) || null,
+      message: (formData.get("message") as string) || null,
+      consent,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      toast({ title: "Erreur", description: "Une erreur est survenue. Veuillez réessayer.", variant: "destructive" });
+      return;
+    }
+
     setSubmitted(true);
   };
 
