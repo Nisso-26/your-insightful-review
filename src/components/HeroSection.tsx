@@ -1,12 +1,9 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-  const handleScroll = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-primary">
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-primary -mt-20 pt-20">
       {/* SVG geometric pattern */}
       <div className="absolute inset-0 opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +18,7 @@ const HeroSection = () => {
         </svg>
       </div>
 
-      <div className="container relative mx-auto flex min-h-screen flex-col justify-center px-6 pt-20 lg:flex-row lg:items-center lg:gap-16">
+      <div className="container relative mx-auto flex min-h-screen flex-col justify-center px-6 lg:flex-row lg:items-center lg:gap-16">
         {/* Left content */}
         <div className="flex-1 space-y-8">
           <p className="section-tag">Conseil en investissement immobilier</p>
@@ -37,19 +34,19 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={() => handleScroll("contact")}
+            <Link
+              to="/contact"
               className="group flex items-center gap-2 rounded-sm bg-accent px-8 py-3.5 font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
             >
               Démarrer mon projet
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              onClick={() => handleScroll("processus")}
+            </Link>
+            <Link
+              to="/methode"
               className="font-body text-[11px] font-bold uppercase tracking-[2px] text-white/80 underline underline-offset-4 decoration-white/30 hover:text-white hover:decoration-accent transition-all"
             >
               Notre méthode
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
@@ -73,7 +70,6 @@ const HeroSection = () => {
         {/* Right floating cards - desktop */}
         <div className="relative mt-12 hidden flex-1 lg:flex lg:justify-end">
           <div className="relative">
-            {/* Main green card */}
             <div className="w-[380px] rounded-lg bg-secondary p-8 text-white shadow-2xl">
               <p className="font-display text-2xl font-light italic mb-6">
                 Votre investissement, notre expertise.
@@ -89,7 +85,6 @@ const HeroSection = () => {
                 )}
               </ul>
             </div>
-            {/* Floating white card */}
             <div className="absolute -bottom-6 -right-8 w-[220px] rounded-lg bg-white p-5 shadow-xl">
               <div className="gold-bar mb-3" />
               <div className="font-display text-3xl font-medium text-primary">+8%</div>
