@@ -33,7 +33,7 @@ const HeroSection = () => {
             Une agence pas comme les autres. Une vision, des résultats.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4" data-reveal data-reveal-delay="300">
+          <div className="flex flex-col sm:flex-row items-start gap-4" data-reveal data-reveal-delay="300">
             <Link
               to="/contact"
               className="group flex items-center justify-center gap-2 rounded-none bg-accent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
@@ -70,7 +70,7 @@ const HeroSection = () => {
             src={mairieTours}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover opacity-[0.08]"
+            className="h-full w-full object-cover opacity-[0.06]"
           />
         </div>
       </div>
