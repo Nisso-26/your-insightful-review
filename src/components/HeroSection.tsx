@@ -83,7 +83,7 @@ const HeroSection = () => {
             src={mairieTours}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover opacity-[0.06]"
+            className="h-full w-full object-cover opacity-[0.04]"
           />
         </div>
       </div>
