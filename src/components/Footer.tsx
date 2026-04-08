@@ -56,6 +56,7 @@ const Footer = () => (
         <div className="flex gap-4">
           <Link to="/mentions-legales" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Mentions légales</Link>
           <Link to="/confidentialite" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Politique de confidentialité</Link>
+          <Link to="/admin/login" className="font-body text-xs text-white/15 hover:text-white/40 transition-colors">Admin</Link>
         </div>
       </div>
     </div>
