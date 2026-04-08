@@ -29,7 +29,7 @@ const HeroSection = () => {
             data-reveal
             data-reveal-delay="200"
           >
-            Une agence pas comme les autres. Une vision, des résultats.
+            Stratégie · Chasse · Travaux · Décoration — De la décision à la clé en main.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4" data-reveal data-reveal-delay="300">
@@ -37,14 +37,30 @@ const HeroSection = () => {
               to="/contact"
               className="flex items-center justify-center gap-2 rounded-none bg-accent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
             >
-              Réserver un audit gratuit
+              Démarrer mon projet →
             </Link>
             <Link
               to="/expertise"
-              className="flex items-center justify-center gap-2 rounded-none border border-white/30 px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-white/80 transition-all hover:border-accent hover:text-accent"
+              className="flex items-center justify-center gap-2 rounded-none border border-white/40 bg-transparent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-white transition-all hover:border-white hover:bg-white/5"
             >
               Découvrir nos offres
             </Link>
+          </div>
+
+          {/* Stats band */}
+          <div className="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8" data-reveal data-reveal-delay="400">
+            <div>
+              <span className="font-display text-3xl font-bold text-accent">98%</span>
+              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Clients satisfaits</p>
+            </div>
+            <div>
+              <span className="font-display text-3xl font-bold text-accent">+200</span>
+              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Projets réalisés</p>
+            </div>
+            <div>
+              <span className="font-display text-3xl font-bold text-accent">A→Z</span>
+              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Accompagnement</p>
+            </div>
           </div>
         </div>
 
@@ -67,7 +83,7 @@ const HeroSection = () => {
             src={mairieTours}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover opacity-[0.06]"
+            className="h-full w-full object-cover opacity-[0.04]"
           />
         </div>
       </div>
