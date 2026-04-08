@@ -7,6 +7,7 @@ const navLinks = [
   { label: "L'équipe", href: "/equipe" },
   { label: "Nos offres", href: "/expertise" },
   { label: "Méthode", href: "/methode" },
+  { label: "Réalisations", href: "/realisations" },
   { label: "Témoignages", href: "/temoignages" },
   { label: "Contact", href: "/contact" },
 ];
