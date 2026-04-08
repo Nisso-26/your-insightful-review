@@ -1,91 +1,234 @@
 import { Link } from "react-router-dom";
-import mairieTours from "@/assets/mairie-tours.jpg";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useState, useEffect, useCallback } from "react";
+
+const SLIDES = [
+  {
+    url: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80",
+    alt: "Place Jean-Jaurès, Tours",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1920&q=80",
+    alt: "Vieille ville de Tours, toits",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80",
+    alt: "Pont Wilson sur la Loire",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1549877452-9c387954fbc2?w=1920&q=80",
+    alt: "Centre-ville haussmannien français",
+  },
+];
+
+const INTERVAL = 5000;
 
 const HeroSection = () => {
-  const ref = useScrollReveal();
+  const [current, setCurrent] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % SLIDES.length);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(next, INTERVAL);
+    return () => clearInterval(id);
+  }, [next]);
+
+  useEffect(() => {
+    requestAnimationFrame(() => setLoaded(true));
+  }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-primary -mt-20">
-      <div className="grid min-h-screen lg:grid-cols-2">
-        {/* Left content */}
-        <div className="relative z-10 flex flex-col justify-center px-8 pt-32 pb-16 sm:px-12 lg:px-16 lg:pt-20" ref={ref}>
-          <p className="section-tag mb-8" data-reveal>
+    <section className="relative min-h-screen overflow-hidden -mt-20">
+      {/* ── Carousel background ── */}
+      {SLIDES.map((slide, i) => (
+        <div
+          key={slide.url}
+          className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
+          style={{ opacity: i === current ? 1 : 0, zIndex: 0 }}
+        >
+          <img
+            src={slide.url}
+            alt={slide.alt}
+            className="h-full w-full object-cover"
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+
+      {/* Overlay gradient */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(26,77,46,0.88) 0%, rgba(26,77,46,0.65) 60%, rgba(0,0,0,0.4) 100%)",
+        }}
+      />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 container mx-auto grid min-h-screen items-center gap-12 px-6 pt-28 pb-20 lg:grid-cols-[55%_45%] lg:pt-20">
+        {/* ── Left column ── */}
+        <div className="flex flex-col justify-center">
+          {/* Tag line */}
+          <p
+            className={`section-tag mb-8 transition-all duration-700 ease-out ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             Chasseur immobilier — Tours & régions
           </p>
 
+          {/* H1 */}
           <h1
-            className="font-display text-[clamp(42px,4.5vw,66px)] font-bold leading-[1.1] text-white mb-4"
-            data-reveal
-            data-reveal-delay="100"
+            className={`font-display text-[clamp(44px,5vw,82px)] font-light leading-[1.08] text-white mb-5 transition-all duration-700 ease-out delay-200 ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           >
-            L'expertise immobilière<br />
-            au service de votre<br />
+            L'expertise immobilière
+            <br />
+            au service de votre
+            <br />
             <em className="text-accent italic">patrimoine</em>
           </h1>
 
+          {/* Subtitle */}
           <p
-            className="font-body text-[15px] italic leading-relaxed text-white/55 mb-10 max-w-md"
-            data-reveal
-            data-reveal-delay="200"
+            className={`font-body text-[15px] leading-[1.85] text-white/65 mb-10 max-w-lg transition-opacity duration-700 ease-out delay-[400ms] ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
           >
-            Stratégie · Chasse · Travaux · Décoration — De la décision à la clé en main.
+            Stratégie · Chasse · Travaux · Décoration — De la décision à la clé
+            en main.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4" data-reveal data-reveal-delay="300">
+          {/* CTAs */}
+          <div
+            className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 ease-out delay-[600ms] ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             <Link
               to="/contact"
-              className="flex items-center justify-center gap-2 rounded-none bg-accent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
+              className="inline-flex items-center justify-center rounded-none bg-accent px-8 py-4 font-body text-[11px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(245,168,0,0.35)]"
             >
               Démarrer mon projet →
             </Link>
             <Link
-              to="/expertise"
-              className="flex items-center justify-center gap-2 rounded-none border border-white/40 bg-transparent px-10 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-white transition-all hover:border-white hover:bg-white/5"
+              to="/methode"
+              className="inline-flex items-center justify-center rounded-none border border-white/40 bg-transparent px-8 py-4 font-body text-[11px] font-bold uppercase tracking-[2px] text-white transition-all hover:border-white hover:bg-white/5"
             >
-              Découvrir nos offres
+              Notre méthode
             </Link>
           </div>
 
           {/* Stats band */}
-          <div className="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-8" data-reveal data-reveal-delay="400">
-            <div>
-              <span className="font-display text-3xl font-bold text-accent">98%</span>
-              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Clients satisfaits</p>
-            </div>
-            <div>
-              <span className="font-display text-3xl font-bold text-accent">+200</span>
-              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Projets réalisés</p>
-            </div>
-            <div>
-              <span className="font-display text-3xl font-bold text-accent">A→Z</span>
-              <p className="font-body text-[11px] uppercase tracking-wider text-white/50 mt-1">Accompagnement</p>
-            </div>
+          <div
+            className={`mt-14 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 transition-opacity duration-700 ease-out delay-[800ms] ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {[
+              { value: "98%", label: "Clients satisfaits" },
+              { value: "+200", label: "Projets réalisés" },
+              { value: "A→Z", label: "Accompagnement" },
+            ].map((stat, i, arr) => (
+              <div
+                key={stat.label}
+                className={`${
+                  i < arr.length - 1
+                    ? "border-r border-white/15 pr-6"
+                    : ""
+                }`}
+              >
+                <span className="font-display text-[clamp(32px,3vw,42px)] font-medium text-accent">
+                  {stat.value}
+                </span>
+                <p className="font-body text-[10px] font-semibold uppercase tracking-[2px] text-white/50 mt-1">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Right image - Mairie de Tours */}
-        <div className="relative hidden lg:block">
-          <img
-            src={mairieTours}
-            alt="Hôtel de Ville de Tours"
-            width={1920}
-            height={1080}
-            className="absolute inset-0 h-full w-full object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/70 to-transparent" />
-          <div className="absolute inset-0 bg-primary/30" />
-        </div>
+        {/* ── Right column — Glassmorphism card (desktop) ── */}
+        <div
+          className={`hidden lg:flex flex-col items-end justify-center transition-all duration-700 ease-out delay-300 ${
+            loaded
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-12"
+          }`}
+        >
+          <div className="relative w-full max-w-md">
+            {/* Main card */}
+            <div
+              className="rounded-sm p-8 border"
+              style={{
+                background: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                borderColor: "rgba(245,168,0,0.25)",
+              }}
+            >
+              {/* Gold bar top */}
+              <div className="w-full h-[2px] bg-accent mb-6" />
 
-        {/* Mobile: subtle background */}
-        <div className="absolute inset-0 lg:hidden">
-          <img
-            src={mairieTours}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover opacity-[0.04]"
-          />
+              <p className="font-body text-[10px] font-bold uppercase tracking-[4px] text-accent mb-3">
+                Notre promesse
+              </p>
+              <h3 className="font-display text-[26px] leading-snug text-white mb-6">
+                Votre investissement,
+                <br />
+                notre expertise.
+              </h3>
+
+              <ul className="space-y-3">
+                {[
+                  "Stratégie patrimoniale",
+                  "Chasse immobilière exclusive",
+                  "Pilotage des travaux",
+                  "Décoration & ameublement",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-3 font-body text-[13px] text-white/80"
+                  >
+                    <span className="inline-block w-4 h-[2px] bg-accent shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Mini card — rendement */}
+            <div className="absolute -bottom-6 -right-4 bg-white rounded-sm px-5 py-4 shadow-xl max-w-[200px]">
+              <span className="font-display text-2xl font-bold text-primary">
+                +8%
+              </span>
+              <p className="font-body text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-0.5">
+                Rendement moyen obtenu
+              </p>
+              <div className="w-full h-[3px] bg-accent mt-3 rounded-full" />
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* ── Slide indicators ── */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Slide ${i + 1}`}
+            className={`h-[3px] rounded-full transition-all duration-500 ${
+              i === current
+                ? "w-8 bg-accent"
+                : "w-4 bg-white/30 hover:bg-white/50"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
