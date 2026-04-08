@@ -1,11 +1,25 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import mairieTours from "@/assets/mairie-tours.jpg";
 
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-primary -mt-20 pt-20">
-      {/* SVG geometric pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Mairie de Tours watermark background */}
+      <div className="absolute inset-0">
+        <img
+          src={mairieTours}
+          alt=""
+          aria-hidden="true"
+          width={1920}
+          height={1080}
+          className="h-full w-full object-cover opacity-[0.12]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/60" />
+      </div>
+
+      {/* SVG geometric pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.06]">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
@@ -13,8 +27,6 @@ const HeroSection = () => {
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
-          <line x1="0" y1="0" x2="100%" y2="100%" stroke="hsl(40 100% 48%)" strokeWidth="0.3" />
-          <line x1="100%" y1="0" x2="0" y2="100%" stroke="hsl(40 100% 48%)" strokeWidth="0.3" />
         </svg>
       </div>
 
