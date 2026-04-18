@@ -45,6 +45,11 @@ const AdminLogin = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Connexion Admin | HUNTERS</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="flex min-h-screen items-center justify-center bg-primary px-4">
       <div className="w-full max-w-md rounded-lg border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
         <div className="mb-8 flex flex-col items-center">
