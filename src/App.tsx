@@ -16,6 +16,7 @@ import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
