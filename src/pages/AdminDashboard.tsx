@@ -74,6 +74,11 @@ const AdminDashboard = () => {
   if (!user || !isAdmin) return null;
 
   return (
+    <>
+      <Helmet>
+        <title>Dashboard Admin | HUNTERS</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="min-h-screen bg-primary">
       {/* Header */}
       <header className="border-b border-white/10 bg-white/5 backdrop-blur-sm">
@@ -228,6 +233,7 @@ const AdminDashboard = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
