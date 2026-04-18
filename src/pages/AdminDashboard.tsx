@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { LogOut, Mail, Phone, Calendar, Search, Loader2, ChevronDown, ChevronUp, Trash2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 interface Lead {
   id: string;
