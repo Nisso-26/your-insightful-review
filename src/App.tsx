@@ -40,6 +40,7 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
