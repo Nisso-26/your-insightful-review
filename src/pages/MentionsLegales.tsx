@@ -1,7 +1,13 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 
 const MentionsLegales = () => (
   <Layout>
+    <SEO
+      title="Mentions légales | HUNTERS"
+      description="Mentions légales du site HUNTERS Immobilier — éditeur, hébergement et responsabilités."
+      path="/mentions-legales"
+    />
     <div className="py-12 bg-background">
       <div className="container mx-auto px-6 max-w-3xl">
         <h1 className="font-display text-4xl font-light text-primary mb-8">Mentions légales</h1>
