@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Lock, ArrowRight, Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -44,6 +45,11 @@ const AdminLogin = () => {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>Connexion Admin | HUNTERS</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="flex min-h-screen items-center justify-center bg-primary px-4">
       <div className="w-full max-w-md rounded-lg border border-white/10 bg-white/5 p-8 backdrop-blur-sm">
         <div className="mb-8 flex flex-col items-center">
@@ -113,6 +119,7 @@ const AdminLogin = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

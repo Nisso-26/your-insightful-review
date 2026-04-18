@@ -1,7 +1,13 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 
 const Confidentialite = () => (
   <Layout>
+    <SEO
+      title="Politique de confidentialité | HUNTERS"
+      description="Politique de confidentialité et traitement des données personnelles conforme RGPD — HUNTERS Immobilier."
+      path="/confidentialite"
+    />
     <div className="py-12 bg-background">
       <div className="container mx-auto px-6 max-w-3xl">
         <h1 className="font-display text-4xl font-light text-primary mb-8">Politique de confidentialité</h1>

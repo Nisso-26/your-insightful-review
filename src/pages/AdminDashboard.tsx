@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { LogOut, Mail, Phone, Calendar, Search, Loader2, ChevronDown, ChevronUp, Trash2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 interface Lead {
   id: string;
@@ -73,6 +74,11 @@ const AdminDashboard = () => {
   if (!user || !isAdmin) return null;
 
   return (
+    <>
+      <Helmet>
+        <title>Dashboard Admin | HUNTERS</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="min-h-screen bg-primary">
       {/* Header */}
       <header className="border-b border-white/10 bg-white/5 backdrop-blur-sm">
@@ -227,6 +233,7 @@ const AdminDashboard = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
