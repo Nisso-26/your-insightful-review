@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Linkedin } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -62,6 +62,9 @@ const Navbar = () => {
         <div className="hidden items-center gap-4 lg:flex">
           <a href="tel:0259160337" className="text-white/80 hover:text-white transition-colors">
             <Phone className="h-4 w-4" />
+          </a>
+          <a href="https://www.linkedin.com/company/hunters-immobilier-tours/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
+            <Linkedin className="h-4 w-4" />
           </a>
           <Link
             to="/contact"
