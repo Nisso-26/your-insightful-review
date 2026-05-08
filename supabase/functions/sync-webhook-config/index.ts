@@ -8,15 +8,7 @@ const corsHeaders = {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
-  // Require service-role key in the Authorization header to run
-  const auth = req.headers.get("Authorization") ?? "";
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  if (auth !== `Bearer ${serviceKey}`) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
 
   const url = Deno.env.get("CONTACT_LEAD_WEBHOOK_URL") ?? "";
   const secret = Deno.env.get("CONTACT_LEAD_WEBHOOK_SECRET") ?? "";
