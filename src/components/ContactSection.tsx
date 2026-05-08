@@ -41,10 +41,15 @@ const ContactSection = () => {
     const form = formRef.current!;
     const formData = new FormData(form);
 
+    const id = crypto.randomUUID();
+    const firstName = formData.get("first_name") as string;
+    const email = formData.get("email") as string;
+
     const { error } = await supabase.from("contact_leads").insert({
-      first_name: formData.get("first_name") as string,
+      id,
+      first_name: firstName,
       last_name: formData.get("last_name") as string,
-      email: formData.get("email") as string,
+      email,
       phone: (formData.get("phone") as string) || null,
       project_type: (formData.get("project_type") as string) || null,
       budget: (formData.get("budget") as string) || null,
@@ -58,6 +63,16 @@ const ContactSection = () => {
       toast({ title: "Erreur", description: "Une erreur est survenue. Veuillez réessayer.", variant: "destructive" });
       return;
     }
+
+    // Send confirmation email (fire-and-forget, don't block the success state)
+    supabase.functions.invoke("send-transactional-email", {
+      body: {
+        templateName: "contact-confirmation",
+        recipientEmail: email,
+        idempotencyKey: `contact-confirm-${id}`,
+        templateData: { firstName },
+      },
+    }).catch((err) => console.error("Confirmation email failed", err));
 
     setSubmitted(true);
   };
