@@ -8,12 +8,6 @@ const team = [
     initials: "AS",
     photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/ANAIS-INDIV-2.jpg",
   },
-  {
-    name: "Raphaëlle HERVÉ",
-    role: "Commerciale",
-    initials: "RH",
-    photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/RAPH-INDIV.jpg",
-  },
 ];
 
 const TeamSection = () => {
