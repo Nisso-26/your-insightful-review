@@ -49,19 +49,19 @@ const AgenceSection = () => {
             </Link>
           </div>
 
-          {/* Placeholder grid for photos - with fallback */}
+          {/* Photos agence */}
           <div className="grid grid-cols-2 gap-3" data-reveal data-reveal-delay="350">
             {[
-              { alt: "Agence Hunters Immobilier Tours", color: "bg-primary/10" },
-              { alt: "Bureau Hunters Immobilier Tours", color: "bg-primary/15" },
-              { alt: "Équipe Hunters Immobilier", color: "bg-primary/10" },
-              { alt: "Espace Hunters Immobilier Tours", color: "bg-primary/15" },
+              { alt: "Agence Hunters Immobilier Tours", src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
+              { alt: "Bureau Hunters Immobilier Tours", src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80" },
+              { alt: "Équipe Hunters Immobilier", src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" },
+              { alt: "Espace Hunters Immobilier Tours", src: "https://images.unsplash.com/photo-1560264280-88b68371db39?w=800&q=80" },
             ].map((photo, i) => (
               <div
                 key={i}
-                className={`overflow-hidden rounded-lg ${i === 1 || i === 2 ? "row-span-2" : ""} ${photo.color} flex items-center justify-center min-h-[160px]`}
+                className={`overflow-hidden rounded-lg ${i === 1 || i === 2 ? "row-span-2" : ""} min-h-[160px]`}
               >
-                <span className="font-display text-lg text-primary/30 italic text-center px-4">{photo.alt}</span>
+                <img src={photo.src} alt={photo.alt} loading="lazy" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
