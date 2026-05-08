@@ -25,7 +25,7 @@ const ProcessSection = () => {
             </p>
             <div className="overflow-hidden rounded-lg" data-reveal data-reveal-delay="200">
               <img
-                src="https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC06791.jpg"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
                 alt="Méthode Hunters Immobilier"
                 loading="lazy"
                 className="w-full object-cover rounded-lg"
