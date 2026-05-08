@@ -202,16 +202,7 @@ const HeroSection = () => {
               </ul>
             </div>
 
-            {/* Mini card — rendement */}
-            <div className="absolute -bottom-6 -right-4 bg-white rounded-sm px-5 py-4 shadow-xl max-w-[200px]">
-              <span className="font-display text-2xl font-bold text-primary">
-                +8%
-              </span>
-              <p className="font-body text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mt-0.5">
-                Rendement moyen obtenu
-              </p>
-              <div className="w-full h-[3px] bg-accent mt-3 rounded-full" />
-            </div>
+            {/* ... */}
           </div>
         </div>
       </div>
