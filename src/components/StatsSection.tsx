@@ -1,10 +1,10 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const stats = [
-  { value: "+200", label: "Projets réalisés" },
-  { value: "98%", label: "Clients satisfaits" },
-  { value: "+8%", label: "Rendement moyen obtenu" },
+  { value: "2019", label: "Année de création" },
+  { value: "Tours", label: "Ancrage local & régional" },
   { value: "A → Z", label: "Accompagnement complet" },
+  { value: "100%", label: "Dédié à vos intérêts" },
 ];
 
 const StatsSection = () => {
