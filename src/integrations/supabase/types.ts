@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      candidatures_reseau: {
+        Row: {
+          city: string
+          consent: boolean
+          created_at: string
+          email: string
+          experience: string
+          first_name: string
+          id: string
+          last_name: string
+          message: string | null
+          phone: string
+        }
+        Insert: {
+          city: string
+          consent?: boolean
+          created_at?: string
+          email: string
+          experience: string
+          first_name: string
+          id?: string
+          last_name: string
+          message?: string | null
+          phone: string
+        }
+        Update: {
+          city?: string
+          consent?: boolean
+          created_at?: string
+          email?: string
+          experience?: string
+          first_name?: string
+          id?: string
+          last_name?: string
+          message?: string | null
+          phone?: string
+        }
+        Relationships: []
+      }
       contact_leads: {
         Row: {
           budget: string | null
