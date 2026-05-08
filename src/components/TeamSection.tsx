@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { UserPlus } from "lucide-react";
 
 const team = [
   {
