@@ -12,6 +12,7 @@ import Methode from "./pages/Methode";
 import Equipe from "./pages/Equipe";
 import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
+import Rejoindre from "./pages/Rejoindre";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import AdminLogin from "./pages/AdminLogin";
