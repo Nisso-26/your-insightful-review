@@ -5,6 +5,7 @@ import StatsSection from "@/components/StatsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ProcessSection from "@/components/ProcessSection";
 import RealisationsSection from "@/components/RealisationsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import SEO from "@/components/SEO";
 
 const Index = () => (
@@ -20,6 +21,7 @@ const Index = () => (
     <ExpertiseSection />
     <ProcessSection />
     <RealisationsSection />
+    <TestimonialsSection />
   </Layout>
 );
 
