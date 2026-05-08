@@ -164,7 +164,7 @@ const HeroSection = () => {
           <div className="relative w-full max-w-md">
             {/* Main card */}
             <div
-              className="rounded-sm p-8 border"
+              className="rounded-sm p-10 border"
               style={{
                 background: "rgba(255,255,255,0.08)",
                 backdropFilter: "blur(12px)",
