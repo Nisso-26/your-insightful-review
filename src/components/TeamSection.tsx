@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { UserPlus } from "lucide-react";
 
 const team = [
   {
@@ -6,12 +7,6 @@ const team = [
     role: "Directeur Général",
     initials: "AS",
     photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/ANAIS-INDIV-2.jpg",
-  },
-  {
-    name: "Raphaëlle HERVÉ",
-    role: "Commerciale",
-    initials: "RH",
-    photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/RAPH-INDIV.jpg",
   },
 ];
 
@@ -66,6 +61,14 @@ const TeamSection = () => {
               </div>
             </div>
           ))}
+          <div
+            data-reveal
+            data-reveal-delay="350"
+            className="flex flex-col items-center justify-center h-[400px] rounded-lg border-2 border-dashed border-accent/40 bg-card/50"
+          >
+            <UserPlus className="h-8 w-8 text-accent/60 mb-3" />
+            <span className="font-body text-xs italic text-accent/70">Rejoindre l'équipe Hunters</span>
+          </div>
         </div>
 
         {/* Quote block */}
