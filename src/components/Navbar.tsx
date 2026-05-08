@@ -63,6 +63,9 @@ const Navbar = () => {
           <a href="tel:0259160337" className="text-white/80 hover:text-white transition-colors">
             <Phone className="h-4 w-4" />
           </a>
+          <a href="https://www.linkedin.com/company/hunters-immobilier-tours/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
+            <Linkedin className="h-4 w-4" />
+          </a>
           <Link
             to="/contact"
             className="rounded-sm bg-accent px-5 py-2.5 font-body text-[10px] font-extrabold uppercase tracking-[1.5px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg"
