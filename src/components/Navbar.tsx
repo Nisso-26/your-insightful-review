@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Réalisations", href: "/realisations" },
   { label: "Témoignages", href: "/temoignages" },
   { label: "Contact", href: "/contact" },
+  { label: "Rejoindre le réseau", href: "/rejoindre" },
 ];
 
 const Navbar = () => {
