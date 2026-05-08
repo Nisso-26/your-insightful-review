@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
@@ -53,6 +53,17 @@ const Footer = () => (
         <p className="font-body text-xs text-white/30">
           © {new Date().getFullYear()} Hunters Immobilier — Tous droits réservés
         </p>
+        <div className="flex items-center gap-4">
+          <a href="https://www.instagram.com/hunters_immobilier" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors">
+            <Instagram className="h-4 w-4" />
+          </a>
+          <a href="https://www.facebook.com/share/18JfSqfm9r/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors">
+            <Facebook className="h-4 w-4" />
+          </a>
+          <a href="https://www.linkedin.com/company/hunters-immobilier-tours/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors">
+            <Linkedin className="h-4 w-4" />
+          </a>
+        </div>
         <div className="flex gap-4">
           <Link to="/mentions-legales" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Mentions légales</Link>
           <Link to="/confidentialite" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Politique de confidentialité</Link>
