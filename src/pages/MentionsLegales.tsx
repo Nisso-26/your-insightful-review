@@ -32,10 +32,13 @@ const MentionsLegales = () => (
               n°72-678 du 20 juillet 1972.
             </p>
             <ul className="mt-3 space-y-1 list-disc pl-5">
-              <li>Carte professionnelle : CPI n° (à compléter)</li>
-              <li>Garantie financière : CEGC (à confirmer)</li>
-              <li>Assurance RCP : MMA (à confirmer)</li>
+              <li>Carte professionnelle CPI n° : en cours d'enregistrement</li>
+              <li>Garantie financière : en cours de souscription</li>
+              <li>Assurance RCP : en cours de souscription</li>
             </ul>
+            <p className="mt-3 text-xs text-muted-foreground/70 italic">
+              Ces mentions seront mises à jour dès obtention des justificatifs.
+            </p>
           </section>
 
           <section>
