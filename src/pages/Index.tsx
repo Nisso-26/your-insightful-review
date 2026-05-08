@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
 import BandeauSection from "@/components/BandeauSection";
+import WhyHuntersSection from "@/components/WhyHuntersSection";
 import StatsSection from "@/components/StatsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ProcessSection from "@/components/ProcessSection";
@@ -17,6 +18,7 @@ const Index = () => (
     />
     <HeroSection />
     <BandeauSection />
+    <WhyHuntersSection />
     <StatsSection />
     <ExpertiseSection />
     <ProcessSection />
