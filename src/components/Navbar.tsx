@@ -35,10 +35,12 @@ const Navbar = () => {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-2xl font-medium tracking-[6px] text-white">
-            HUNTERS
-          </span>
+        <Link to="/" className="flex items-center" aria-label="HUNTERS - Accueil">
+          <img
+            src="/logo-hunters.png"
+            alt="HUNTERS - Chasseur immobilier"
+            className="h-10 md:h-12 w-auto"
+          />
         </Link>
 
         <div className="hidden items-center gap-6 lg:flex">
