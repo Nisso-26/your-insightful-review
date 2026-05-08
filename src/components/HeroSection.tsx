@@ -76,7 +76,7 @@ const HeroSection = () => {
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Chasseur immobilier — Tours & régions
+            Conseil en investissement immobilier — Tours & Indre-et-Loire
           </p>
 
           {/* H1 */}
