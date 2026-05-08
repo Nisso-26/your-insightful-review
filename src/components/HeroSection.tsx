@@ -124,24 +124,25 @@ const HeroSection = () => {
 
           {/* Stats band */}
           <div
-            className={`mt-14 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 transition-opacity duration-700 ease-out delay-[800ms] ${
+            className={`mt-14 grid grid-cols-4 gap-4 border-t border-white/10 pt-8 transition-opacity duration-700 ease-out delay-[800ms] ${
               loaded ? "opacity-100" : "opacity-0"
             }`}
           >
             {[
-              { value: "98%", label: "Clients satisfaits" },
-              { value: "+200", label: "Projets réalisés" },
-              { value: "A→Z", label: "Accompagnement" },
+              { value: "2019", label: "Année de création" },
+              { value: "Tours", label: "Ancrage local & régional" },
+              { value: "A → Z", label: "Accompagnement complet" },
+              { value: "100%", label: "Dédié à vos intérêts" },
             ].map((stat, i, arr) => (
               <div
                 key={stat.label}
                 className={`${
                   i < arr.length - 1
-                    ? "border-r border-white/15 pr-6"
+                    ? "border-r border-white/15 pr-4"
                     : ""
                 }`}
               >
-                <span className="font-display text-[clamp(32px,3vw,42px)] font-medium text-accent">
+                <span className="font-display text-[clamp(24px,2.5vw,36px)] font-medium text-accent">
                   {stat.value}
                 </span>
                 <p className="font-body text-[10px] font-semibold uppercase tracking-[2px] text-white/50 mt-1">
