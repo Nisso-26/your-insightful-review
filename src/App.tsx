@@ -12,6 +12,7 @@ import Methode from "./pages/Methode";
 import Equipe from "./pages/Equipe";
 import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
+import Rejoindre from "./pages/Rejoindre";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import AdminLogin from "./pages/AdminLogin";
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/realisations" element={<Realisations />} />
             <Route path="/temoignages" element={<Temoignages />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/rejoindre" element={<Rejoindre />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />
             <Route path="/admin/login" element={<AdminLogin />} />
