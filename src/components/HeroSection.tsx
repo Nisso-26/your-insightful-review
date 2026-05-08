@@ -200,6 +200,12 @@ const HeroSection = () => {
                   </li>
                 ))}
               </ul>
+
+              {/* Gold separator + footer text */}
+              <div className="w-full h-[2px] bg-accent mt-6" />
+              <p className="font-body text-[10px] tracking-[3px] text-accent/70 mt-4 text-center uppercase">
+                Depuis 2019 — Tours & régions
+              </p>
             </div>
 
             {/* ... */}
