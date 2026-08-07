@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
+    --background: 43 56% 90%;
     --foreground: 0 0% 17%;
 
     --card: 0 0% 100%;
@@ -15,16 +15,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 17%;
 
-    --primary: 148 48% 21%;
-    --primary-foreground: 40 20% 97%;
+    --primary: 148 100% 14%;
+    --primary-foreground: 43 56% 90%;
 
-    --secondary: 148 46% 34%;
+    --secondary: 149 81% 12%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 40 100% 48%;
-    --accent-foreground: 148 48% 21%;
+    --accent: 40 62% 48%;
+    --accent-foreground: 148 100% 14%;
 
-    --muted: 40 11% 95%;
+    --muted: 43 30% 93%;
     --muted-foreground: 0 0% 40%;
 
     --destructive: 0 84% 60%;
@@ -32,15 +32,15 @@
 
     --border: 40 11% 90%;
     --input: 40 11% 90%;
-    --ring: 40 100% 48%;
+    --ring: 40 62% 48%;
 
     --radius: 0.5rem;
 
-    --hunters-forest: 148 48% 21%;
-    --hunters-gold: 40 100% 48%;
-    --hunters-green-light: 148 46% 34%;
-    --hunters-anthracite: 0 0% 17%;
-    --hunters-cream: 40 20% 97%;
+    --hunters-forest: 148 100% 14%;
+    --hunters-gold: 40 62% 48%;
+    --hunters-green-light: 149 81% 12%;
+    --hunters-anthracite: 96 14% 14%;
+    --hunters-cream: 43 56% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -60,11 +60,11 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Jost', sans-serif;
   }
 
   h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Marcellus', serif;
   }
 
   html {
@@ -74,10 +74,10 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Marcellus', serif;
   }
   .font-body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Jost', sans-serif;
   }
   .section-tag {
     @apply font-body font-bold text-[10px] tracking-[4px] uppercase;
