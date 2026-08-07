@@ -1,31 +1,30 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const stats = [
-  { value: "2019", label: "Année de création" },
-  { value: "Tours", label: "Ancrage local & régional" },
-  { value: "A → Z", label: "Accompagnement complet" },
-  { value: "100%", label: "Dédié à vos intérêts" },
+const engagements = [
+  { value: "24h", label: "Réponse motivée garantie" },
+  { value: "1 seul", label: "Interlocuteur, du conseil à la décoration" },
+  { value: "100%", label: "Accompagnement sur-mesure" },
+  { value: "Sans", label: "Frais de dossier caché" },
 ];
 
 const StatsSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="chiffres" className="bg-card py-24">
+    <section id="chiffres" className="bg-background pb-24">
       <div className="container mx-auto px-6" ref={ref}>
-        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
-          {stats.map((stat, i) => (
+        <div className="grid border-l border-primary/15 sm:grid-cols-2 lg:grid-cols-4">
+          {engagements.map((e, i) => (
             <div
-              key={stat.label}
+              key={e.value}
               data-reveal
-              data-reveal-delay={String(i * 150)}
-              className={`text-center ${i < stats.length - 1 ? "lg:border-r lg:border-border" : ""}`}
+              data-reveal-delay={String(i * 100)}
+              className="border-b border-r border-primary/15 p-8 lg:p-10"
             >
-              <div className="gold-bar mx-auto mb-4" />
-              <div className="font-display text-4xl font-medium text-primary sm:text-5xl">{stat.value}</div>
-              <div className="mt-2 font-body text-xs font-semibold uppercase tracking-[2px] text-muted-foreground">
-                {stat.label}
-              </div>
+              <div className="font-display text-4xl text-primary">{e.value}</div>
+              <p className="mt-3 font-body text-[11px] uppercase tracking-[2px] text-muted-foreground">
+                {e.label}
+              </p>
             </div>
           ))}
         </div>

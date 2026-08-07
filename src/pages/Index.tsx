@@ -1,12 +1,10 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
-import BandeauSection from "@/components/BandeauSection";
-import WhyHuntersSection from "@/components/WhyHuntersSection";
-import StatsSection from "@/components/StatsSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
-import ProcessSection from "@/components/ProcessSection";
-import RealisationsSection from "@/components/RealisationsSection";
+import StatsSection from "@/components/StatsSection";
+import BandeauSection from "@/components/BandeauSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ClosingCtaSection from "@/components/ClosingCtaSection";
 import SEO from "@/components/SEO";
 
 const Index = () => (
@@ -17,13 +15,11 @@ const Index = () => (
       path="/"
     />
     <HeroSection />
-    <BandeauSection />
-    <WhyHuntersSection />
-    <StatsSection />
     <ExpertiseSection />
-    <ProcessSection />
-    <RealisationsSection />
+    <StatsSection />
+    <BandeauSection />
     <TestimonialsSection />
+    <ClosingCtaSection />
   </Layout>
 );
 
