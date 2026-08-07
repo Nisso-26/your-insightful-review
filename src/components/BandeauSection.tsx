@@ -1,19 +1,25 @@
 import { Link } from "react-router-dom";
 
 const BandeauSection = () => (
-  <div className="bg-accent py-6">
-    <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-6 text-center sm:flex-row sm:text-left">
-      <p className="font-display text-lg font-medium text-primary italic sm:text-xl">
-        Hunters Immobilier, c'est bien plus qu'une agence. C'est un partenaire de confiance, une passerelle vers la liberté financière.
-      </p>
+  <section className="bg-muted py-10">
+    <div className="container mx-auto flex flex-col items-start justify-between gap-6 px-6 md:flex-row md:items-center">
+      <div>
+        <p className="font-body text-[10px] font-medium uppercase tracking-[4px] text-accent mb-3">
+          Zones d'intervention
+        </p>
+        <p className="font-display text-xl text-primary sm:text-2xl">
+          Tours · Joué-lès-Tours · Saint-Cyr-sur-Loire · Amboise{" "}
+          <span className="font-body text-sm text-muted-foreground">et Indre-et-Loire</span>
+        </p>
+      </div>
       <Link
-        to="/expertise"
-        className="shrink-0 font-body text-[11px] font-bold uppercase tracking-[2px] text-primary underline underline-offset-4 hover:text-primary/70 transition-colors"
+        to="/contact"
+        className="shrink-0 font-body text-[10px] font-medium uppercase tracking-[2px] text-primary underline underline-offset-4 hover:text-accent transition-colors"
       >
-        Nos services →
+        Voir toutes les zones →
       </Link>
     </div>
-  </div>
+  </section>
 );
 
 export default BandeauSection;

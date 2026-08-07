@@ -71,7 +71,7 @@ const Navbar = () => {
             to="/contact"
             className="rounded-sm bg-accent px-5 py-2.5 font-body text-[10px] font-extrabold uppercase tracking-[1.5px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg"
           >
-            Réserver un audit
+            Demander une étude
           </Link>
         </div>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
             to="/contact"
             className="mt-2 block w-full rounded-sm bg-accent py-3 text-center font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary"
           >
-            Réserver un audit
+            Demander une étude
           </Link>
         </div>
       )}
