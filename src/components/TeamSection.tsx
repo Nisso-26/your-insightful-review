@@ -1,96 +1,84 @@
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { UserPlus } from "lucide-react";
+import PillarPageHero from "@/components/PillarPageHero";
+import PillarClosingCta from "@/components/PillarClosingCta";
 
-const team = [
+const categories = [
   {
-    name: "Anaïs SAIZONOU",
-    role: "Directeur Général",
-    initials: "AS",
-    photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/ANAIS-INDIV-2.jpg",
+    title: "Conseil & chasse",
+    desc: "Analyse patrimoniale, sourcing et négociation, en lien direct avec chaque client.",
+  },
+  {
+    title: "Mandataires du réseau",
+    desc: "Formés à la méthode HUNTERS, ils relaient le cabinet sur le terrain.",
   },
 ];
 
-const TeamSection = () => {
-  const ref = useScrollReveal();
+const member = {
+  name: "Anaïs SAIZONOU",
+  role: "Directeur Général",
+  initials: "AS",
+  photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/ANAIS-INDIV-2.jpg",
+};
 
-  return (
+const TeamSection = () => (
+  <>
+    <PillarPageHero
+      eyebrow="L'équipe"
+      docRef="EQU-01"
+      title="Un cabinet, un interlocuteur"
+      intro="HUNTERS s'appuie sur une équipe restreinte et un réseau de mandataires formés, pour garantir un suivi personnel de chaque dossier."
+    />
+
     <section className="bg-background py-24">
-      <div className="container mx-auto px-6" ref={ref}>
-        <p className="section-tag mb-4" data-reveal>L'équipe</p>
-        <h2 className="font-display text-4xl font-light text-primary sm:text-5xl lg:text-[58px] mb-6" data-reveal data-reveal-delay="100">
-          Des experts <em className="italic text-accent">à votre service</em>
-        </h2>
-        <p className="font-body text-sm leading-relaxed text-muted-foreground max-w-2xl mb-16" data-reveal data-reveal-delay="150">
-          Chez Hunters Immobilier, chaque projet commence par une rencontre. Derrière chaque réussite, des femmes et des hommes passionnés, engagés et entièrement dédiés à vos ambitions.
-        </p>
+      <div className="container mx-auto px-6">
+        <div className="max-w-[320px] border border-primary/15">
+          <div className="relative h-[400px] overflow-hidden bg-primary/5">
+            <img
+              src={member.photo}
+              alt={`${member.name} — ${member.role} HUNTERS`}
+              loading="lazy"
+              className="h-full w-full object-cover object-top"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = "none";
+                const fallback = target.nextElementSibling as HTMLElement;
+                if (fallback) fallback.style.display = "flex";
+              }}
+            />
+            <div className="absolute inset-0 hidden items-center justify-center">
+              <span className="font-display text-4xl text-primary">{member.initials}</span>
+            </div>
+          </div>
+          <div className="border-t border-primary/15 p-6">
+            <h2 className="font-display text-xl text-primary">{member.name}</h2>
+            <p className="mt-2 font-body text-[10px] font-medium uppercase tracking-[3px] text-accent">
+              {member.role}
+            </p>
+          </div>
+        </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-          {team.map((member, i) => (
-            <div
-              key={member.name}
-              data-reveal
-              data-reveal-delay={String(200 + i * 150)}
-              className="group relative overflow-hidden rounded-lg bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <div className="absolute top-0 left-0 right-0 h-[3px] scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
-              <div className="relative h-[400px] overflow-hidden bg-primary/10">
-                {/* Photo with fallback initials */}
-                <img
-                  src={member.photo}
-                  alt={`${member.name} — ${member.role} Hunters Immobilier`}
-                  loading="lazy"
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    target.style.display = "none";
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = "flex";
-                  }}
-                />
-                <div className="absolute inset-0 items-center justify-center hidden">
-                  <div className="h-24 w-24 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="font-display text-4xl font-medium text-primary">{member.initials}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-medium text-primary">{member.name}</h3>
-                <p className="font-body text-[10px] font-bold uppercase tracking-[3px] text-accent mt-1">
-                  {member.role}
-                </p>
-              </div>
+        <div className="mt-16 grid max-w-[900px] gap-px border-t border-primary/15 md:grid-cols-2">
+          {categories.map((c) => (
+            <div key={c.title} className="border-b border-primary/15 py-8 md:pr-10">
+              <h3 className="font-body text-sm font-semibold uppercase tracking-[1.5px] text-primary">
+                {c.title}
+              </h3>
+              <p className="mt-3 max-w-md font-body text-[15px] leading-[1.8] text-muted-foreground">
+                {c.desc}
+              </p>
             </div>
           ))}
-          <div
-            data-reveal
-            data-reveal-delay="350"
-            className="flex flex-col items-center justify-center h-[400px] rounded-lg border-2 border-dashed border-accent/40 bg-card/50"
-          >
-            <UserPlus className="h-8 w-8 text-accent/60 mb-3" />
-            <span className="font-body text-xs italic text-accent/70">Rejoindre l'équipe Hunters</span>
-          </div>
         </div>
-
-        {/* Quote block */}
-        <div className="relative rounded-lg bg-primary p-10 lg:p-16 overflow-hidden" data-reveal data-reveal-delay="400">
-          <span className="absolute top-4 right-8 font-display text-[160px] leading-none text-accent/10 select-none">"</span>
-          <div className="relative max-w-3xl">
-            <div className="gold-bar mb-6" />
-            <blockquote className="font-display text-xl font-light italic leading-relaxed text-white lg:text-2xl mb-6">
-              Chez Hunters Immobilier, chaque projet commence par une rencontre. Derrière chaque réussite, il y a des femmes et des hommes passionnés, engagés, et entièrement dédiés à transformer vos ambitions immobilières en réalité.
-            </blockquote>
-            <cite className="font-body text-sm font-semibold text-accent not-italic">
-              — L'équipe Hunters Immobilier
-            </cite>
-          </div>
-        </div>
-
-        <p className="font-body text-sm leading-relaxed text-muted-foreground max-w-3xl mx-auto text-center mt-16" data-reveal data-reveal-delay="500">
-          Notre équipe, c'est avant tout une alliance de personnalités complémentaires, animées par la même conviction : l'immobilier doit être simple, fluide et profondément humain. Que ce soit pour trouver le bien idéal, suivre un chantier, imaginer un aménagement ou optimiser un investissement, nous avançons à vos côtés avec transparence, réactivité et exigence.
-        </p>
       </div>
     </section>
-  );
-};
+
+    <PillarClosingCta
+      idPrefix="equipe"
+      eyebrow="Échangez avec l'équipe"
+      title="Parlons de votre projet d'investissement"
+      text="Réponse motivée sous 24h ouvrées, sans engagement."
+      submitLabel="Prendre rendez-vous"
+    />
+  </>
+);
 
 export default TeamSection;
