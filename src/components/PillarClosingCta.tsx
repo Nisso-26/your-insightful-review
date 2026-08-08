@@ -5,9 +5,10 @@ interface PillarClosingCtaProps {
   title: string;
   text: string;
   idPrefix?: string;
+  submitLabel?: string;
 }
 
-const PillarClosingCta = ({ eyebrow, title, text, idPrefix = "pillar" }: PillarClosingCtaProps) => (
+const PillarClosingCta = ({ eyebrow, title, text, idPrefix = "pillar", submitLabel = "Prendre rendez-vous" }: PillarClosingCtaProps) => (
   <section className="bg-primary py-24">
     <div className="container mx-auto grid items-center gap-16 px-6 lg:grid-cols-[1fr_0.9fr]">
       <div>
@@ -25,7 +26,7 @@ const PillarClosingCta = ({ eyebrow, title, text, idPrefix = "pillar" }: PillarC
       </div>
 
       <div className="bg-[hsl(var(--hunters-cream))] p-8 lg:p-10">
-        <EtudeForm idPrefix={idPrefix} submitLabel="Prendre rendez-vous" />
+        <EtudeForm idPrefix={idPrefix} submitLabel={submitLabel} />
       </div>
     </div>
   </section>
