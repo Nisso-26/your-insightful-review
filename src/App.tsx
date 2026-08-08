@@ -17,6 +17,7 @@ import Decoration from "./pages/expertise/Decoration";
 import Equipe from "./pages/Equipe";
 import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
+import ZonesIntervention from "./pages/ZonesIntervention";
 import Rejoindre from "./pages/Rejoindre";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/realisations" element={<Realisations />} />
             <Route path="/temoignages" element={<Temoignages />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/zones-intervention" element={<ZonesIntervention />} />
             <Route path="/rejoindre" element={<Rejoindre />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />

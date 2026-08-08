@@ -13,7 +13,7 @@ const BandeauSection = () => (
         </p>
       </div>
       <Link
-        to="/contact"
+        to="/zones-intervention"
         className="shrink-0 font-body text-[10px] font-medium uppercase tracking-[2px] text-primary underline underline-offset-4 hover:text-accent transition-colors"
       >
         Voir toutes les zones →
