@@ -22,6 +22,8 @@ import Rejoindre from "./pages/Rejoindre";
 import Faq from "./pages/Faq";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
+import CguCgv from "./pages/CguCgv";
+
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import ResetPassword from "./pages/ResetPassword";
@@ -56,6 +58,8 @@ const App = () => (
             <Route path="/faq" element={<Faq />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />
+            <Route path="/cgu-cgv" element={<CguCgv />} />
+
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/admin" element={<AdminDashboard />} />

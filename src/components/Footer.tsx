@@ -15,10 +15,11 @@ const Footer = () => (
         <div>
           <h4 className="font-body text-[10px] font-bold uppercase tracking-[3px] text-accent mb-4">Nos offres</h4>
           <div className="space-y-2">
-            <Link to="/expertise" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Conseil en investissement</Link>
-            <Link to="/expertise" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Chasse immobilière</Link>
-            <Link to="/expertise" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Clé en main</Link>
-            <Link to="/expertise" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Décoration & ameublement</Link>
+            <Link to="/expertise/strategie" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Conseil en investissement</Link>
+            <Link to="/expertise/chasse" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Chasse immobilière</Link>
+            <Link to="/expertise/travaux" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Suivi de travaux</Link>
+            <Link to="/expertise/decoration" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Décoration & ameublement</Link>
+            <Link to="/honoraires" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Honoraires</Link>
           </div>
         </div>
 
@@ -29,10 +30,13 @@ const Footer = () => (
             <Link to="/methode" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Notre méthode</Link>
             <Link to="/realisations" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réalisations</Link>
             <Link to="/temoignages" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Témoignages</Link>
+            <Link to="/zones-intervention" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Zones d'intervention</Link>
+            <Link to="/faq" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">FAQ</Link>
             <Link to="/contact" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réserver un audit</Link>
-            <Link to="/rejoindre" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Rejoindre le réseau</Link>
+            <Link to="/rejoindre" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Nous rejoindre</Link>
           </div>
         </div>
+
 
         <div>
           <h4 className="font-body text-[10px] font-bold uppercase tracking-[3px] text-accent mb-4">Contact</h4>
@@ -68,7 +72,9 @@ const Footer = () => (
         <div className="flex gap-4">
           <Link to="/mentions-legales" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Mentions légales</Link>
           <Link to="/confidentialite" className="font-body text-xs text-white/30 hover:text-accent transition-colors">Politique de confidentialité</Link>
+          <Link to="/cgu-cgv" className="font-body text-xs text-white/30 hover:text-accent transition-colors">CGU / CGV</Link>
         </div>
+
       </div>
     </div>
   </footer>
