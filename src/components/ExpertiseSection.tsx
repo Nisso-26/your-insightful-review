@@ -5,21 +5,25 @@ const pillars = [
   {
     num: "I.",
     title: "Stratégie",
+    href: "/expertise/strategie",
     desc: "Analyse patrimoniale, TMI, capacité d'emprunt, cible de rendement.",
   },
   {
     num: "II.",
     title: "Chasse",
+    href: "/expertise/chasse",
     desc: "Sourcing exclusif, visite, négociation.",
   },
   {
     num: "III.",
     title: "Travaux",
+    href: "/expertise/travaux",
     desc: "Pilotage AMO, artisans qualifiés, suivi hebdomadaire.",
   },
   {
     num: "IV.",
     title: "Décoration",
+    href: "/expertise/decoration",
     desc: "Aménagement clé en main, mise en valeur locative ou personnelle.",
   },
 ];
@@ -46,7 +50,7 @@ const ExpertiseSection = () => {
               <h3 className="font-display text-2xl text-primary mt-3 mb-4">{p.title}</h3>
               <p className="font-body text-sm leading-relaxed text-muted-foreground mb-6">{p.desc}</p>
               <Link
-                to="/expertise"
+                to={p.href}
                 className="font-body text-[10px] font-medium uppercase tracking-[2px] text-primary underline underline-offset-4 hover:text-accent transition-colors"
               >
                 En savoir plus →
