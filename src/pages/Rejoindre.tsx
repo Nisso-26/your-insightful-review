@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { z } from "zod";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
+import PillarPageHero from "@/components/PillarPageHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
