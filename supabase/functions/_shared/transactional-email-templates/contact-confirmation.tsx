@@ -49,7 +49,7 @@ const ContactConfirmationEmail = ({ firstName }: ContactConfirmationProps) => (
         <Section style={infoBox}>
           <Text style={infoTitle}>Nous joindre</Text>
           <Text style={infoLine}>
-            <Link href="tel:0259160337" style={link}>02 59 16 03 37</Link>
+            <Link href="tel:0650152287" style={link}>06 50 15 22 87</Link>
           </Text>
           <Text style={infoLine}>
             <Link href="mailto:hunters@huntersimmobilier.fr" style={link}>
