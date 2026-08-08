@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { z } from "zod";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
+import PillarPageHero from "@/components/PillarPageHero";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -33,20 +34,21 @@ const candidatureSchema = z.object({
 const reasons = [
   {
     icon: Compass,
-    title: "Liberté & indépendance",
-    text: "Vous exercez à votre rythme, sur votre secteur, avec votre clientèle.",
+    title: "Une méthode éprouvée",
+    text: "Le système des quatre piliers et le registre de dossier, transmis à chaque mandataire.",
   },
   {
     icon: GraduationCap,
-    title: "Formation & accompagnement",
-    text: "Intégration, outils, méthode Hunters et suivi terrain dès le premier jour.",
+    title: "Un support cabinet",
+    text: "Accès aux outils, à la marque et à l'expertise transverse (travaux, décoration).",
   },
   {
     icon: TrendingUp,
-    title: "Rémunération attractive",
-    text: "Commissions compétitives, système de parrainage et progression N1/N2.",
+    title: "Une rémunération à la performance",
+    text: "Structure d'honoraires partagée, précisée lors de l'entretien.",
   },
 ];
+
 
 const Rejoindre = () => {
   const reasonsRef = useScrollReveal();
@@ -118,18 +120,12 @@ const Rejoindre = () => {
         path="/rejoindre"
       />
 
-      {/* Hero */}
-      <section className="bg-primary pt-32 pb-24 border-b-2 border-accent">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <p className="section-tag mb-6 text-accent">Réseau Hunters</p>
-          <h1 className="font-display text-4xl font-light text-white sm:text-5xl lg:text-6xl mb-8">
-            Rejoignez le <em className="italic text-accent">réseau Hunters</em>
-          </h1>
-          <p className="font-body text-base leading-relaxed text-white/75 max-w-2xl mx-auto">
-            Devenez mandataire indépendant et développez votre activité avec le soutien d'une structure experte, structurée et ambitieuse.
-          </p>
-        </div>
-      </section>
+      <PillarPageHero
+        eyebrow="Rejoindre le réseau"
+        docRef="REC-01"
+        title="Nous rejoindre"
+        intro="HUNTERS recrute des mandataires indépendants souhaitant s'appuyer sur une méthode structurée et une marque établie pour développer leur activité en Indre-et-Loire."
+      />
 
       {/* Pourquoi */}
       <section className="bg-background py-24">
@@ -146,7 +142,7 @@ const Rejoindre = () => {
                   key={r.title}
                   data-reveal
                   data-reveal-delay={String(200 + i * 150)}
-                  className="border-t-2 border-accent pt-8"
+                  className="border-t border-primary/15 pt-8"
                 >
                   <Icon className="h-8 w-8 text-accent mb-6" />
                   <h3 className="font-display text-2xl font-medium text-primary mb-4">
@@ -163,7 +159,7 @@ const Rejoindre = () => {
       </section>
 
       {/* Formulaire */}
-      <section className="bg-muted py-24">
+      <section className="bg-[hsl(var(--hunters-cream))] py-24">
         <div className="container mx-auto px-6 max-w-3xl" ref={formRef}>
           <p className="section-tag mb-4" data-reveal>Candidature</p>
           <h2 className="font-display text-4xl font-light text-primary sm:text-5xl mb-6" data-reveal data-reveal-delay="100">
@@ -173,7 +169,8 @@ const Rejoindre = () => {
             Remplissez le formulaire ci-dessous, nous reviendrons vers vous sous 48 heures.
           </p>
 
-          <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-8 lg:p-10 space-y-6" data-reveal data-reveal-delay="200">
+          <form onSubmit={handleSubmit} className="border border-primary/15 bg-background p-8 lg:p-10 space-y-6" data-reveal data-reveal-delay="200">
+
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <Label htmlFor="first_name" className="font-body text-[10px] font-bold uppercase tracking-[2px] text-primary">Prénom *</Label>
