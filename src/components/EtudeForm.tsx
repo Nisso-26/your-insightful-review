@@ -23,7 +23,10 @@ const inputClass =
 const labelClass =
   "mb-1.5 block font-body text-[10px] font-medium uppercase tracking-[2px] text-muted-foreground";
 
-const EtudeForm = ({ idPrefix = "etude" }: { idPrefix?: string }) => {
+const EtudeForm = ({
+  idPrefix = "etude",
+  submitLabel = "Recevoir mon étude",
+}: { idPrefix?: string; submitLabel?: string }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
