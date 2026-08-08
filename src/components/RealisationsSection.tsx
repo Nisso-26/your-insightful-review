@@ -1,13 +1,13 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import CalloutBox from "@/components/CalloutBox";
+import PillarClosingCta from "@/components/PillarClosingCta";
 
 /**
  * ═══════════════════════════════════════════════════════
  * AJOUTER UNE NOUVELLE RÉALISATION :
- * 
+ *
  * Copiez un bloc dans le tableau `projects` ci-dessous :
- * 
+ *
  *   {
  *     label: "Mois AAAA — Quartier NOM",
  *     photos: [
@@ -17,7 +17,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
  *       "URL_PHOTO_4",
  *     ],
  *   },
- * 
+ *
  * Placez-le en PREMIER dans le tableau pour qu'il
  * apparaisse en haut de la page (le plus récent d'abord).
  * ═══════════════════════════════════════════════════════
@@ -48,26 +48,18 @@ const RealisationsSection = () => {
 
   return (
     <>
-      <section className="bg-background py-24">
+      <section className="bg-[hsl(var(--hunters-cream))] py-24">
         <div className="container mx-auto px-6" ref={ref}>
-          <p className="section-tag mb-4" data-reveal>Réalisations</p>
-          <h2 className="font-display text-4xl font-light text-primary sm:text-5xl lg:text-[58px] mb-6" data-reveal data-reveal-delay="100">
-            Des projets qui <em className="italic text-accent">parlent</em> pour nous
-          </h2>
-          <p className="font-body text-sm leading-relaxed text-muted-foreground max-w-2xl mb-16" data-reveal data-reveal-delay="150">
-            Chaque projet raconte une histoire : celle d'un lieu transformé, optimisé et pensé dans les moindres détails. Découvrez nos réalisations et imaginez ce que nous pourrions créer ensemble.
-          </p>
-
           <div className="space-y-20">
             {projects.map((project, pi) => (
               <div key={project.label}>
                 <div
-                  className="mb-6 inline-flex items-center gap-3"
+                  className="mb-6 flex items-center gap-3 border-b border-primary/15 pb-4"
                   data-reveal
-                  data-reveal-delay={String(200 + pi * 100)}
+                  data-reveal-delay={String(100 + pi * 100)}
                 >
-                  <div className="gold-bar" />
-                  <span className="font-body text-[11px] font-bold uppercase tracking-[2px] text-muted-foreground">
+                  <span className="h-px w-8 bg-accent" />
+                  <span className="font-body text-[10px] font-medium uppercase tracking-[3px] text-muted-foreground">
                     {project.label}
                   </span>
                 </div>
@@ -77,8 +69,8 @@ const RealisationsSection = () => {
                     <div
                       key={i}
                       data-reveal
-                      data-reveal-delay={String(300 + pi * 100 + i * 100)}
-                      className="group overflow-hidden rounded-lg"
+                      data-reveal-delay={String(200 + pi * 100 + i * 100)}
+                      className="group overflow-hidden"
                     >
                       <img
                         src={src}
@@ -92,35 +84,23 @@ const RealisationsSection = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="font-display text-3xl font-light text-white sm:text-4xl lg:text-5xl mb-4">
-            Prêt à faire travailler<br />votre <em className="italic text-accent">capital</em> ?
-          </h2>
-          <p className="font-body text-sm text-white/60 max-w-md mx-auto mb-8">
-            Réservez votre audit stratégique offert — 30 minutes pour définir votre plan d'investissement.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/contact"
-              className="group flex items-center gap-2 rounded-sm bg-accent px-8 py-4 font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary transition-all hover:bg-accent/90 hover:shadow-xl"
-            >
-              Réserver mon audit gratuit
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href="tel:0259160337"
-              className="rounded-sm border border-white/30 px-8 py-4 font-body text-[10px] font-bold uppercase tracking-[2px] text-white transition-all hover:border-accent hover:text-accent"
-            >
-              02 59 16 03 37
-            </a>
+          <div className="mt-20" data-reveal>
+            <CalloutBox
+              title="Une sélection en cours de constitution"
+              text="Cette page s'enrichit au fil des projets menés à bien et de l'accord de nos clients pour les présenter."
+            />
           </div>
         </div>
       </section>
+
+      <PillarClosingCta
+        idPrefix="realisations"
+        eyebrow="Votre projet, notre prochain dossier"
+        title="Parlons de ce que vous voulez accomplir"
+        text="Réponse motivée sous 24h ouvrées, sans engagement."
+        submitLabel="Prendre rendez-vous"
+      />
     </>
   );
 };

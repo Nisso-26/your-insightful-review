@@ -19,6 +19,7 @@ import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
 import ZonesIntervention from "./pages/ZonesIntervention";
 import Rejoindre from "./pages/Rejoindre";
+import Faq from "./pages/Faq";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import AdminLogin from "./pages/AdminLogin";
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/zones-intervention" element={<ZonesIntervention />} />
             <Route path="/rejoindre" element={<Rejoindre />} />
+            <Route path="/faq" element={<Faq />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/confidentialite" element={<Confidentialite />} />
             <Route path="/admin/login" element={<AdminLogin />} />

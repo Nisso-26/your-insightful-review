@@ -40,8 +40,8 @@ const Footer = () => (
             <div className="flex items-center gap-3 text-white/50 font-body text-sm">
               <MapPin className="h-4 w-4 shrink-0" /> 45 rue Michel Colombe, 37000 Tours
             </div>
-            <a href="tel:0259160337" className="flex items-center gap-3 text-white/50 hover:text-accent transition-colors font-body text-sm">
-              <Phone className="h-4 w-4 shrink-0" /> 02 59 16 03 37
+            <a href="tel:0650152287" className="flex items-center gap-3 text-white/50 hover:text-accent transition-colors font-body text-sm">
+              <Phone className="h-4 w-4 shrink-0" /> 06 50 15 22 87
             </a>
             <a href="mailto:hunters@huntersimmobilier.fr" className="flex items-center gap-3 text-white/50 hover:text-accent transition-colors font-body text-sm">
               <Mail className="h-4 w-4 shrink-0" /> hunters@huntersimmobilier.fr

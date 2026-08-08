@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href="tel:0259160337" className="text-white/80 hover:text-white transition-colors">
+          <a href="tel:0650152287" className="text-white/80 hover:text-white transition-colors">
             <Phone className="h-4 w-4" />
           </a>
           <a href="https://www.linkedin.com/company/hunters-immobilier-tours/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
@@ -98,10 +98,10 @@ const Navbar = () => {
             </Link>
           ))}
           <a
-            href="tel:0259160337"
+            href="tel:0650152287"
             className="mt-2 flex items-center gap-2 py-3 font-body text-sm text-accent"
           >
-            <Phone className="h-4 w-4" /> 02 59 16 03 37
+            <Phone className="h-4 w-4" /> 06 50 15 22 87
           </a>
           <Link
             to="/contact"

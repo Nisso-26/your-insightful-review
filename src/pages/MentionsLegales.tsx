@@ -20,7 +20,7 @@ const MentionsLegales = () => (
               45 rue Michel Colombe, 37000 Tours<br />
               SIRET : 879 176 949 00029<br />
               Email : hunters@huntersimmobilier.fr<br />
-              Téléphone : 02 59 16 03 37
+              Téléphone : 06 50 15 22 87
             </p>
           </section>
 

@@ -7,7 +7,7 @@ const Temoignages = () => (
   <Layout>
     <SEO
       title="Témoignages clients — 98% de satisfaction | HUNTERS"
-      description="Lisez les témoignages de nos clients investisseurs. 98% de satisfaction, plus de 200 projets réalisés : la confiance au cœur de l'expertise HUNTERS."
+      description="Découvrez les retours de nos clients investisseurs, publiés au fil des accompagnements menés par le cabinet HUNTERS à Tours."
       path="/temoignages"
     />
     <StatsSection />
