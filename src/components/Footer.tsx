@@ -6,7 +6,19 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link to="/" className="font-display text-2xl font-medium tracking-[6px] text-white">HUNTERS</Link>
+          <Link to="/" className="flex items-center gap-3">
+            <svg viewBox="0 0 120 132" className="h-5 w-auto shrink-0" aria-hidden="true" focusable="false">
+              {[0, 1, 2, 3].map((row) => (
+                <g key={row}>
+                  <rect x="8" y={8 + row * 30} width="34" height="22" rx="6" fill="hsl(var(--hunters-cream))" />
+                  <rect x="78" y={8 + row * 30} width="34" height="22" rx="6" fill="hsl(var(--hunters-cream))" />
+                </g>
+              ))}
+              <path d="M46 52 L60 66 L74 52" fill="none" stroke="#C8962F" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M46 76 L60 90 L74 76" fill="none" stroke="#C8962F" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className="font-display text-2xl font-medium tracking-[6px] text-white">HUNTERS</span>
+          </Link>
           <p className="mt-4 font-body text-sm leading-relaxed text-white/40">
             Votre partenaire en investissement immobilier locatif. Basé à Tours, actif sur plusieurs régions de France.
           </p>
