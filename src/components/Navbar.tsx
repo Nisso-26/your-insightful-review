@@ -1,17 +1,42 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Linkedin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "L'agence", href: "/agence" },
-  { label: "L'équipe", href: "/equipe" },
-  { label: "Nos offres", href: "/expertise" },
+  { label: "Expertise", href: "/expertise" },
   { label: "Méthode", href: "/methode" },
   { label: "Réalisations", href: "/realisations" },
   { label: "Témoignages", href: "/temoignages" },
+  { label: "L'agence", href: "/agence" },
   { label: "Contact", href: "/contact" },
-  { label: "Nous rejoindre", href: "/rejoindre" },
 ];
+
+const Monogram = ({ className = "h-9 w-auto" }: { className?: string }) => (
+  <svg viewBox="0 0 120 132" className={className} aria-hidden="true" focusable="false">
+    {[0, 1, 2, 3].map((row) => (
+      <g key={row}>
+        <rect x="8" y={8 + row * 30} width="34" height="22" rx="6" fill="#004621" />
+        <rect x="78" y={8 + row * 30} width="34" height="22" rx="6" fill="#004621" />
+      </g>
+    ))}
+    <path
+      d="M46 52 L60 66 L74 52"
+      fill="none"
+      stroke="#C8962F"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M46 76 L60 90 L74 76"
+      fill="none"
+      stroke="#C8962F"
+      strokeWidth="7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -31,28 +56,23 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b-2 border-accent ${
-        scrolled || location.pathname !== "/" ? "bg-primary shadow-lg" : "bg-primary/95"
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-primary/[0.16] bg-[hsl(var(--hunters-cream))] transition-shadow duration-300 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
-      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center" aria-label="HUNTERS - Accueil">
-          <img
-            src="/logo-hunters.png"
-            alt="HUNTERS - Chasseur immobilier"
-            className="h-10 md:h-14 w-auto object-contain"
-          />
+      <nav className="container mx-auto flex h-[92px] items-center justify-between px-6">
+        <Link to="/" className="flex items-center gap-3" aria-label="HUNTERS — Accueil">
+          <Monogram className="h-9 w-auto" />
+          <span className="font-display text-xl tracking-[6px] text-primary">HUNTERS</span>
         </Link>
 
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`font-body text-[11px] font-bold uppercase tracking-[1.5px] transition-colors ${
-                location.pathname === link.href
-                  ? "text-accent"
-                  : "text-white/75 hover:text-accent"
+              className={`font-body text-[11px] font-medium uppercase tracking-[1.5px] transition-colors ${
+                location.pathname === link.href ? "text-accent" : "text-primary hover:text-accent"
               }`}
             >
               {link.label}
@@ -60,52 +80,39 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden items-center gap-4 lg:flex">
-          <a href="tel:0650152287" className="text-white/80 hover:text-white transition-colors">
-            <Phone className="h-4 w-4" />
-          </a>
-          <a href="https://www.linkedin.com/company/hunters-immobilier-tours/" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors">
-            <Linkedin className="h-4 w-4" />
-          </a>
-          <Link
-            to="/contact"
-            className="rounded-sm bg-accent px-5 py-2.5 font-body text-[10px] font-extrabold uppercase tracking-[1.5px] text-primary transition-all hover:bg-accent/90 hover:shadow-lg"
-          >
-            Demander une étude
-          </Link>
-        </div>
+        <Link
+          to="/contact"
+          className="hidden rounded-sm bg-primary px-6 py-3 font-body text-[10px] font-bold uppercase tracking-[1.5px] text-primary-foreground transition-opacity hover:opacity-90 lg:inline-block"
+        >
+          Demander une étude
+        </Link>
 
         <button
-          className="text-white lg:hidden"
+          className="text-primary lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="bg-primary px-6 pb-6 lg:hidden animate-fade-up">
+        <div className="border-t border-primary/10 bg-[hsl(var(--hunters-cream))] px-6 pb-6 lg:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`block w-full py-3 text-left font-body text-sm font-semibold uppercase tracking-[2px] transition-colors ${
-                location.pathname === link.href ? "text-accent" : "text-white/80 hover:text-accent"
+              className={`block w-full border-b border-primary/10 py-4 text-left font-body text-sm font-medium uppercase tracking-[2px] transition-colors ${
+                location.pathname === link.href ? "text-accent" : "text-primary hover:text-accent"
               }`}
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href="tel:0650152287"
-            className="mt-2 flex items-center gap-2 py-3 font-body text-sm text-accent"
-          >
-            <Phone className="h-4 w-4" /> 06 50 15 22 87
-          </a>
           <Link
             to="/contact"
-            className="mt-2 block w-full rounded-sm bg-accent py-3 text-center font-body text-[10px] font-extrabold uppercase tracking-[2px] text-primary"
+            className="mt-6 block w-full rounded-sm bg-primary py-4 text-center font-body text-[10px] font-bold uppercase tracking-[2px] text-primary-foreground"
           >
             Demander une étude
           </Link>

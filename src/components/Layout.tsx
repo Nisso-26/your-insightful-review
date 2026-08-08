@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
       Aller au contenu
     </a>
     <Navbar />
-    <main id="main-content" className="pt-20">{children}</main>
+    <main id="main-content" className="pt-[92px]">{children}</main>
     <Footer />
   </>
 );
