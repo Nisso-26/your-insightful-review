@@ -9,6 +9,11 @@ import Realisations from "./pages/Realisations";
 import Agence from "./pages/Agence";
 import Expertise from "./pages/Expertise";
 import Methode from "./pages/Methode";
+import Honoraires from "./pages/Honoraires";
+import Strategie from "./pages/expertise/Strategie";
+import Chasse from "./pages/expertise/Chasse";
+import Travaux from "./pages/expertise/Travaux";
+import Decoration from "./pages/expertise/Decoration";
 import Equipe from "./pages/Equipe";
 import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
@@ -34,6 +39,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/agence" element={<Agence />} />
             <Route path="/expertise" element={<Expertise />} />
+            <Route path="/expertise/strategie" element={<Strategie />} />
+            <Route path="/expertise/chasse" element={<Chasse />} />
+            <Route path="/expertise/travaux" element={<Travaux />} />
+            <Route path="/expertise/decoration" element={<Decoration />} />
+            <Route path="/honoraires" element={<Honoraires />} />
             <Route path="/methode" element={<Methode />} />
             <Route path="/equipe" element={<Equipe />} />
             <Route path="/realisations" element={<Realisations />} />

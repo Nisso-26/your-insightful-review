@@ -23,7 +23,10 @@ const inputClass =
 const labelClass =
   "mb-1.5 block font-body text-[10px] font-medium uppercase tracking-[2px] text-muted-foreground";
 
-const EtudeForm = ({ idPrefix = "etude" }: { idPrefix?: string }) => {
+const EtudeForm = ({
+  idPrefix = "etude",
+  submitLabel = "Recevoir mon étude",
+}: { idPrefix?: string; submitLabel?: string }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
@@ -124,7 +127,7 @@ const EtudeForm = ({ idPrefix = "etude" }: { idPrefix?: string }) => {
         disabled={loading}
         className="flex w-full items-center justify-center gap-2 rounded-none bg-primary py-4 font-body text-[11px] font-medium uppercase tracking-[3px] text-primary-foreground transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent/60 disabled:opacity-60"
       >
-        {loading ? (<><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Envoi en cours…</>) : "Recevoir mon étude"}
+        {loading ? (<><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Envoi en cours…</>) : submitLabel}
       </button>
     </form>
   );
