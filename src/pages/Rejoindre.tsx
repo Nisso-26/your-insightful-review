@@ -33,20 +33,21 @@ const candidatureSchema = z.object({
 const reasons = [
   {
     icon: Compass,
-    title: "Liberté & indépendance",
-    text: "Vous exercez à votre rythme, sur votre secteur, avec votre clientèle.",
+    title: "Une méthode éprouvée",
+    text: "Le système des quatre piliers et le registre de dossier, transmis à chaque mandataire.",
   },
   {
     icon: GraduationCap,
-    title: "Formation & accompagnement",
-    text: "Intégration, outils, méthode Hunters et suivi terrain dès le premier jour.",
+    title: "Un support cabinet",
+    text: "Accès aux outils, à la marque et à l'expertise transverse (travaux, décoration).",
   },
   {
     icon: TrendingUp,
-    title: "Rémunération attractive",
-    text: "Commissions compétitives, système de parrainage et progression N1/N2.",
+    title: "Une rémunération à la performance",
+    text: "Structure d'honoraires partagée, précisée lors de l'entretien.",
   },
 ];
+
 
 const Rejoindre = () => {
   const reasonsRef = useScrollReveal();
