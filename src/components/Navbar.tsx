@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { label: "Expertise", href: "/expertise" },
   { label: "Méthode", href: "/methode" },
+  { label: "Équipe", href: "/equipe" },
   { label: "Réalisations", href: "/realisations" },
   { label: "Témoignages", href: "/temoignages" },
   { label: "L'agence", href: "/agence" },
