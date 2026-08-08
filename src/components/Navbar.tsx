@@ -13,28 +13,17 @@ const navLinks = [
 
 const Monogram = ({ className = "h-9 w-auto" }: { className?: string }) => (
   <svg viewBox="0 0 120 132" className={className} aria-hidden="true" focusable="false">
-    {[0, 1, 2, 3].map((row) => (
-      <g key={row}>
-        <rect x="8" y={8 + row * 30} width="34" height="22" rx="6" fill="#004621" />
-        <rect x="78" y={8 + row * 30} width="34" height="22" rx="6" fill="#004621" />
-      </g>
-    ))}
-    <path
-      d="M46 52 L60 66 L74 52"
-      fill="none"
-      stroke="#C8962F"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M46 76 L60 90 L74 76"
-      fill="none"
-      stroke="#C8962F"
-      strokeWidth="7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <g fill="#004621">
+      <rect x="24" y="4" width="17" height="22" rx="5" />
+      <rect x="24" y="37" width="17" height="22" rx="5" />
+      <rect x="24" y="70" width="17" height="22" rx="5" />
+      <rect x="24" y="103" width="17" height="22" rx="5" />
+      <rect x="79" y="4" width="17" height="22" rx="5" />
+      <rect x="79" y="37" width="17" height="22" rx="5" />
+      <rect x="79" y="70" width="17" height="22" rx="5" />
+      <rect x="79" y="103" width="17" height="22" rx="5" />
+    </g>
+    <path d="M24 68 L60 52 L96 68" fill="none" stroke="#C8962F" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" />
   </svg>
 );
 
