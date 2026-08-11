@@ -16,7 +16,7 @@ const ClosingCtaSection = () => (
       </div>
 
       <div className="bg-[hsl(var(--hunters-cream))] p-8 lg:p-10">
-        <EtudeForm idPrefix="closing" />
+        <EtudeForm idPrefix="closing" submitLabel="Prendre rendez-vous" />
       </div>
     </div>
   </section>
