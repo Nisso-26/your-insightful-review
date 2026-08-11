@@ -38,65 +38,79 @@ const ContactSection = () => {
     e.preventDefault();
     setLoading(true);
 
-    const form = formRef.current!;
-    const formData = new FormData(form);
+    try {
+      const form = formRef.current!;
+      const formData = new FormData(form);
 
-    const id = crypto.randomUUID();
-    const firstName = formData.get("first_name") as string;
-    const email = formData.get("email") as string;
+      const id = crypto.randomUUID();
+      const firstName = formData.get("first_name") as string;
+      const email = formData.get("email") as string;
 
-    const { error } = await supabase.from("contact_leads").insert({
-      id,
-      first_name: firstName,
-      last_name: formData.get("last_name") as string,
-      email,
-      phone: (formData.get("phone") as string) || null,
-      project_type: (formData.get("project_type") as string) || null,
-      budget: (formData.get("budget") as string) || null,
-      message: (formData.get("message") as string) || null,
-      consent,
-    });
+      const { error } = await supabase.from("contact_leads").insert({
+        id,
+        first_name: firstName,
+        last_name: formData.get("last_name") as string,
+        email,
+        phone: (formData.get("phone") as string) || null,
+        project_type: (formData.get("project_type") as string) || null,
+        budget: (formData.get("budget") as string) || null,
+        message: (formData.get("message") as string) || null,
+        consent,
+      });
 
-    setLoading(false);
+      if (error) {
+        console.error("Insert contact_leads failed", error);
+        toast({
+          title: "Erreur",
+          description:
+            "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.",
+          variant: "destructive",
+        });
+        return;
+      }
 
-    if (error) {
-      toast({ title: "Erreur", description: "Une erreur est survenue. Veuillez réessayer.", variant: "destructive" });
-      return;
-    }
-
-    // Send confirmation email (fire-and-forget, don't block the success state)
-    supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "contact-confirmation",
-        recipientEmail: email,
-        idempotencyKey: `contact-confirm-${id}`,
-        templateData: { firstName },
-      },
-    }).catch((err) => console.error("Confirmation email failed", err));
-
-    // Notify HUNTERS internally (fire-and-forget)
-    supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "lead-notification",
-        recipientEmail: "hunters@huntersimmobilier.fr",
-        idempotencyKey: `lead-notif-${id}`,
-        templateData: {
-          firstName,
-          lastName: (formData.get("last_name") as string) || "",
-          email,
-          phone: (formData.get("phone") as string) || null,
-          budget: (formData.get("budget") as string) || null,
-          projectType: (formData.get("project_type") as string) || null,
-          message: (formData.get("message") as string) || null,
-          submittedAt: new Date().toISOString(),
-          source: "Formulaire de contact",
+      // Send confirmation email (fire-and-forget, don't block the success state)
+      supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: email,
+          idempotencyKey: `contact-confirm-${id}`,
+          templateData: { firstName },
         },
-      },
-    }).catch((err) => console.error("Lead notification email failed", err));
+      }).catch((err) => console.error("Confirmation email failed", err));
 
+      // Notify HUNTERS internally (fire-and-forget)
+      supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "lead-notification",
+          recipientEmail: "hunters@huntersimmobilier.fr",
+          idempotencyKey: `lead-notif-${id}`,
+          templateData: {
+            firstName,
+            lastName: (formData.get("last_name") as string) || "",
+            email,
+            phone: (formData.get("phone") as string) || null,
+            budget: (formData.get("budget") as string) || null,
+            projectType: (formData.get("project_type") as string) || null,
+            message: (formData.get("message") as string) || null,
+            submittedAt: new Date().toISOString(),
+            source: "Formulaire de contact",
+          },
+        },
+      }).catch((err) => console.error("Lead notification email failed", err));
 
-
-    setSubmitted(true);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("ContactSection submit exception", err);
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

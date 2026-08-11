@@ -36,68 +36,79 @@ const EtudeForm = ({
     e.preventDefault();
     setLoading(true);
 
-    const formData = new FormData(formRef.current!);
-    const id = crypto.randomUUID();
-    const firstName = formData.get("first_name") as string;
-    const email = formData.get("email") as string;
+    try {
+      const formData = new FormData(formRef.current!);
+      const id = crypto.randomUUID();
+      const firstName = formData.get("first_name") as string;
+      const email = formData.get("email") as string;
 
-    const { error } = await supabase.from("contact_leads").insert({
-      id,
-      first_name: firstName,
-      last_name: (formData.get("last_name") as string) || "",
-      email,
-      phone: null,
-      project_type: (formData.get("project_type") as string) || null,
-      budget: (formData.get("budget") as string) || null,
-      message: null,
-      consent: true,
-    });
+      const { error } = await supabase.from("contact_leads").insert({
+        id,
+        first_name: firstName,
+        last_name: (formData.get("last_name") as string) || "",
+        email,
+        phone: null,
+        project_type: (formData.get("project_type") as string) || null,
+        budget: (formData.get("budget") as string) || null,
+        message: null,
+        consent: true,
+      });
 
-    setLoading(false);
+      if (error) {
+        console.error("Insert contact_leads failed", error);
+        toast({
+          title: "Erreur",
+          description:
+            "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.",
+          variant: "destructive",
+        });
+        return;
+      }
 
-    if (error) {
+      supabase.functions
+        .invoke("send-transactional-email", {
+          body: {
+            templateName: "contact-confirmation",
+            recipientEmail: email,
+            idempotencyKey: `contact-confirm-${id}`,
+            templateData: { firstName },
+          },
+        })
+        .catch((err) => console.error("Confirmation email failed", err));
+
+      supabase.functions
+        .invoke("send-transactional-email", {
+          body: {
+            templateName: "lead-notification",
+            recipientEmail: "hunters@huntersimmobilier.fr",
+            idempotencyKey: `lead-notif-${id}`,
+            templateData: {
+              firstName,
+              lastName: (formData.get("last_name") as string) || "",
+              email,
+              phone: null,
+              budget: (formData.get("budget") as string) || null,
+              projectType: (formData.get("project_type") as string) || null,
+              message: null,
+              submittedAt: new Date().toISOString(),
+              source: "Formulaire étude",
+            },
+          },
+        })
+        .catch((err) => console.error("Lead notification email failed", err));
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("EtudeForm submit exception", err);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue. Veuillez réessayer.",
+        description:
+          "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.",
         variant: "destructive",
       });
-      return;
+    } finally {
+      setLoading(false);
     }
-
-    supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-confirmation",
-          recipientEmail: email,
-          idempotencyKey: `contact-confirm-${id}`,
-          templateData: { firstName },
-        },
-      })
-      .catch((err) => console.error("Confirmation email failed", err));
-
-    supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "lead-notification",
-          recipientEmail: "hunters@huntersimmobilier.fr",
-          idempotencyKey: `lead-notif-${id}`,
-          templateData: {
-            firstName,
-            lastName: (formData.get("last_name") as string) || "",
-            email,
-            phone: null,
-            budget: (formData.get("budget") as string) || null,
-            projectType: (formData.get("project_type") as string) || null,
-            message: null,
-            submittedAt: new Date().toISOString(),
-            source: "Formulaire étude",
-          },
-        },
-      })
-      .catch((err) => console.error("Lead notification email failed", err));
-
-
-    setSubmitted(true);
   };
 
   if (submitted) {
