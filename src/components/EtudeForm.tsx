@@ -75,6 +75,28 @@ const EtudeForm = ({
       })
       .catch((err) => console.error("Confirmation email failed", err));
 
+    supabase.functions
+      .invoke("send-transactional-email", {
+        body: {
+          templateName: "lead-notification",
+          recipientEmail: "hunters@huntersimmobilier.fr",
+          idempotencyKey: `lead-notif-${id}`,
+          templateData: {
+            firstName,
+            lastName: (formData.get("last_name") as string) || "",
+            email,
+            phone: null,
+            budget: (formData.get("budget") as string) || null,
+            projectType: (formData.get("project_type") as string) || null,
+            message: null,
+            submittedAt: new Date().toISOString(),
+            source: "Formulaire étude",
+          },
+        },
+      })
+      .catch((err) => console.error("Lead notification email failed", err));
+
+
     setSubmitted(true);
   };
 

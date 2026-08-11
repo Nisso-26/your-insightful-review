@@ -74,6 +74,28 @@ const ContactSection = () => {
       },
     }).catch((err) => console.error("Confirmation email failed", err));
 
+    // Notify HUNTERS internally (fire-and-forget)
+    supabase.functions.invoke("send-transactional-email", {
+      body: {
+        templateName: "lead-notification",
+        recipientEmail: "hunters@huntersimmobilier.fr",
+        idempotencyKey: `lead-notif-${id}`,
+        templateData: {
+          firstName,
+          lastName: (formData.get("last_name") as string) || "",
+          email,
+          phone: (formData.get("phone") as string) || null,
+          budget: (formData.get("budget") as string) || null,
+          projectType: (formData.get("project_type") as string) || null,
+          message: (formData.get("message") as string) || null,
+          submittedAt: new Date().toISOString(),
+          source: "Formulaire de contact",
+        },
+      },
+    }).catch((err) => console.error("Lead notification email failed", err));
+
+
+
     setSubmitted(true);
   };
 
