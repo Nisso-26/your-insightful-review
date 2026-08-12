@@ -42,17 +42,26 @@ const EtudeForm = ({
       const firstName = formData.get("first_name") as string;
       const email = formData.get("email") as string;
 
-      const { error } = await supabase.from("contact_leads").insert({
-        id,
-        first_name: firstName,
-        last_name: (formData.get("last_name") as string) || "",
-        email,
-        phone: null,
-        project_type: (formData.get("project_type") as string) || null,
-        budget: (formData.get("budget") as string) || null,
-        message: null,
-        consent: true,
-      });
+      // Garde-fou : abandon à 15 s si la requête ne reçoit jamais de réponse.
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+
+      const { error } = await supabase
+        .from("contact_leads")
+        .insert({
+          id,
+          first_name: firstName,
+          last_name: (formData.get("last_name") as string) || "",
+          email,
+          phone: null,
+          project_type: (formData.get("project_type") as string) || null,
+          budget: (formData.get("budget") as string) || null,
+          message: null,
+          consent: true,
+        })
+        .abortSignal(controller.signal);
+
+      window.clearTimeout(timeoutId);
 
       if (error) {
         console.error("Insert contact_leads failed", error);

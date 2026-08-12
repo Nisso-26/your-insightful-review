@@ -46,17 +46,27 @@ const ContactSection = () => {
       const firstName = formData.get("first_name") as string;
       const email = formData.get("email") as string;
 
-      const { error } = await supabase.from("contact_leads").insert({
-        id,
-        first_name: firstName,
-        last_name: formData.get("last_name") as string,
-        email,
-        phone: (formData.get("phone") as string) || null,
-        project_type: (formData.get("project_type") as string) || null,
-        budget: (formData.get("budget") as string) || null,
-        message: (formData.get("message") as string) || null,
-        consent,
-      });
+      // Garde-fou : si la requête HTTP part mais ne reçoit jamais de réponse,
+      // la promesse ne se règle jamais et le bouton reste bloqué. On abandonne à 15 s.
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+
+      const { error } = await supabase
+        .from("contact_leads")
+        .insert({
+          id,
+          first_name: firstName,
+          last_name: formData.get("last_name") as string,
+          email,
+          phone: (formData.get("phone") as string) || null,
+          project_type: (formData.get("project_type") as string) || null,
+          budget: (formData.get("budget") as string) || null,
+          message: (formData.get("message") as string) || null,
+          consent,
+        })
+        .abortSignal(controller.signal);
+
+      window.clearTimeout(timeoutId);
 
       if (error) {
         console.error("Insert contact_leads failed", error);
