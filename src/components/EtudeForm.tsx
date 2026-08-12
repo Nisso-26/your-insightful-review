@@ -25,7 +25,7 @@ const labelClass =
 
 const EtudeForm = ({
   idPrefix = "etude",
-  submitLabel = "Recevoir mon étude",
+  submitLabel = "Envoyer ma demande",
 }: { idPrefix?: string; submitLabel?: string }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
