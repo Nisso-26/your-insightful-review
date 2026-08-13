@@ -48,6 +48,7 @@ const LeadNotificationEmail = ({
   lastName,
   email,
   phone,
+  city,
   budget,
   projectType,
   message,
