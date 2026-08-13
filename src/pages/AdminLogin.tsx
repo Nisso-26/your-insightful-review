@@ -20,15 +20,26 @@ const AdminLogin = () => {
     setLoading(true);
     setError("");
 
-    const { error } = await signIn(email, password);
-    setLoading(false);
+    try {
+      const { error } = await Promise.race([
+        signIn(email, password),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(() => reject(new Error("timeout")), 15000)
+        ),
+      ]);
 
-    if (error) {
-      setError("Identifiants incorrects");
-      return;
+      if (error) {
+        setError("Identifiants incorrects");
+        return;
+      }
+
+      navigate("/admin");
+    } catch (err) {
+      console.error("AdminLogin signIn exception", err);
+      setError("Impossible de se connecter. Vérifiez votre connexion internet et réessayez.");
+    } finally {
+      setLoading(false);
     }
-
-    navigate("/admin");
   };
 
   const handleForgot = async (e: React.FormEvent) => {
