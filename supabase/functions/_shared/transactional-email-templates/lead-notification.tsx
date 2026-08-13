@@ -17,6 +17,7 @@ interface LeadNotificationProps {
   lastName?: string
   email?: string
   phone?: string
+  city?: string
   budget?: string
   projectType?: string
   message?: string
