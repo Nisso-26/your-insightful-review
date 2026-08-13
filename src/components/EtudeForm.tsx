@@ -157,6 +157,10 @@ const EtudeForm = ({
         <input id={`${idPrefix}-email`} name="email" type="email" required aria-required="true" autoComplete="email" className={inputClass} />
       </div>
       <div>
+        <label htmlFor={`${idPrefix}-phone`} className={labelClass}>Téléphone</label>
+        <input id={`${idPrefix}-phone`} name="phone" type="tel" required aria-required="true" autoComplete="tel" placeholder="06 XX XX XX XX" className={inputClass} />
+      </div>
+      <div>
         <label htmlFor={`${idPrefix}-budget`} className={labelClass}>Budget d'investissement</label>
         <select id={`${idPrefix}-budget`} name="budget" className={inputClass} defaultValue="">
           <option value="">Sélectionner</option>
