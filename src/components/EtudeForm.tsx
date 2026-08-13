@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { Check, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -29,6 +30,7 @@ const EtudeForm = ({
 }: { idPrefix?: string; submitLabel?: string }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [consent, setConsent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
@@ -41,6 +43,8 @@ const EtudeForm = ({
       const id = crypto.randomUUID();
       const firstName = formData.get("first_name") as string;
       const email = formData.get("email") as string;
+      const phone = (formData.get("phone") as string) || null;
+      const city = (formData.get("city") as string) || null;
 
       // Garde-fou : abandon à 15 s si la requête ne reçoit jamais de réponse.
       const controller = new AbortController();
@@ -53,11 +57,12 @@ const EtudeForm = ({
           first_name: firstName,
           last_name: (formData.get("last_name") as string) || "",
           email,
-          phone: null,
+          phone,
+          city,
           project_type: (formData.get("project_type") as string) || null,
           budget: (formData.get("budget") as string) || null,
           message: null,
-          consent: true,
+          consent,
         })
         .abortSignal(controller.signal);
 
@@ -95,7 +100,8 @@ const EtudeForm = ({
               firstName,
               lastName: (formData.get("last_name") as string) || "",
               email,
-              phone: null,
+              phone,
+              city,
               budget: (formData.get("budget") as string) || null,
               projectType: (formData.get("project_type") as string) || null,
               message: null,
@@ -151,6 +157,10 @@ const EtudeForm = ({
         <input id={`${idPrefix}-email`} name="email" type="email" required aria-required="true" autoComplete="email" className={inputClass} />
       </div>
       <div>
+        <label htmlFor={`${idPrefix}-phone`} className={labelClass}>Téléphone</label>
+        <input id={`${idPrefix}-phone`} name="phone" type="tel" required aria-required="true" autoComplete="tel" placeholder="06 XX XX XX XX" className={inputClass} />
+      </div>
+      <div>
         <label htmlFor={`${idPrefix}-budget`} className={labelClass}>Budget d'investissement</label>
         <select id={`${idPrefix}-budget`} name="budget" className={inputClass} defaultValue="">
           <option value="">Sélectionner</option>
@@ -164,6 +174,20 @@ const EtudeForm = ({
           {objectifs.map((o) => (<option key={o} value={o}>{o}</option>))}
         </select>
       </div>
+      <div>
+        <label htmlFor={`${idPrefix}-city`} className={labelClass}>Ville de résidence</label>
+        <input id={`${idPrefix}-city`} name="city" type="text" autoComplete="address-level2" placeholder="Votre ville" className={inputClass} />
+      </div>
+      <label htmlFor={`${idPrefix}-consent`} className="flex items-start gap-3 cursor-pointer">
+        <input id={`${idPrefix}-consent`} type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required aria-required="true" className="mt-1 h-4 w-4 accent-accent" />
+        <span className="font-body text-xs text-muted-foreground">
+          J'accepte la{" "}
+          <Link to="/confidentialite" className="text-primary underline underline-offset-4 hover:text-accent">
+            politique de confidentialité
+          </Link>{" "}
+          <span aria-hidden="true" className="text-accent">*</span>
+        </span>
+      </label>
       <button
         type="submit"
         disabled={loading}

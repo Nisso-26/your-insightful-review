@@ -17,6 +17,7 @@ interface LeadNotificationProps {
   lastName?: string
   email?: string
   phone?: string
+  city?: string
   budget?: string
   projectType?: string
   message?: string
@@ -47,6 +48,7 @@ const LeadNotificationEmail = ({
   lastName,
   email,
   phone,
+  city,
   budget,
   projectType,
   message,
@@ -72,6 +74,7 @@ const LeadNotificationEmail = ({
           <Row label="Nom" value={lastName} />
           <Row label="Email" value={email} />
           <Row label="Téléphone" value={phone} />
+          <Row label="Ville de résidence" value={city} />
           <Row label="Budget" value={budget} />
           <Row label="Objectif / type de projet" value={projectType} />
           <Row label="Message" value={message} />
