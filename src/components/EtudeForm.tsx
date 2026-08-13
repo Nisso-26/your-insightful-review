@@ -57,11 +57,12 @@ const EtudeForm = ({
           first_name: firstName,
           last_name: (formData.get("last_name") as string) || "",
           email,
-          phone: null,
+          phone,
+          city,
           project_type: (formData.get("project_type") as string) || null,
           budget: (formData.get("budget") as string) || null,
           message: null,
-          consent: true,
+          consent,
         })
         .abortSignal(controller.signal);
 
