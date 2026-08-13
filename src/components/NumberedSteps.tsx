@@ -11,7 +11,7 @@ const NumberedSteps = ({ items }: { items: NumberedStep[] }) => (
           {String(i + 1).padStart(2, "0")}
         </span>
         <div>
-          <h3 className="font-body text-sm font-semibold uppercase tracking-[1.5px] text-primary">
+          <h3 className="font-display text-xl leading-snug text-primary">
             {item.title}
           </h3>
           <p className="mt-2 font-body text-[15px] leading-[1.8] text-muted-foreground">
