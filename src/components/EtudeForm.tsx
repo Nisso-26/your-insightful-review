@@ -43,6 +43,8 @@ const EtudeForm = ({
       const id = crypto.randomUUID();
       const firstName = formData.get("first_name") as string;
       const email = formData.get("email") as string;
+      const phone = (formData.get("phone") as string) || null;
+      const city = (formData.get("city") as string) || null;
 
       // Garde-fou : abandon à 15 s si la requête ne reçoit jamais de réponse.
       const controller = new AbortController();
