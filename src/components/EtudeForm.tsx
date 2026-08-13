@@ -30,6 +30,7 @@ const EtudeForm = ({
 }: { idPrefix?: string; submitLabel?: string }) => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [consent, setConsent] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
