@@ -20,13 +20,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   const checkAdmin = async (userId: string) => {
-    const { data } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userId)
-      .eq("role", "admin")
-      .maybeSingle();
-    setIsAdmin(!!data);
+    try {
+      const result = await Promise.race([
+        supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId)
+          .eq("role", "admin")
+          .maybeSingle(),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(() => reject(new Error("timeout")), 10000)
+        ),
+      ]);
+      setIsAdmin(!!result.data);
+    } catch (err) {
+      console.error("checkAdmin error or timeout", err);
+      setIsAdmin(false);
+    }
   };
 
   useEffect(() => {
@@ -43,11 +53,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     );
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       if (session?.user) {
-        checkAdmin(session.user.id);
+        await checkAdmin(session.user.id);
       }
       setLoading(false);
     });

@@ -22,6 +22,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [sortDesc, setSortDesc] = useState(true);
@@ -40,12 +41,27 @@ const AdminDashboard = () => {
 
   const fetchLeads = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("contact_leads")
-      .select("*")
-      .order("created_at", { ascending: false });
-    setLeads((data as Lead[]) || []);
-    setLoading(false);
+    setErrorMsg(null);
+    try {
+      const result = await Promise.race([
+        supabase
+          .from("contact_leads")
+          .select("*")
+          .order("created_at", { ascending: false }),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(() => reject(new Error("timeout")), 15000)
+        ),
+      ]);
+      setLeads((result.data as Lead[]) || []);
+    } catch (err) {
+      console.error("fetchLeads error or timeout", err);
+      setLeads([]);
+      setErrorMsg(
+        "Impossible de charger les leads. Vérifiez votre connexion internet."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const filtered = leads
@@ -148,6 +164,17 @@ const AdminDashboard = () => {
         {loading ? (
           <div className="flex justify-center py-16">
             <Loader2 className="h-8 w-8 animate-spin text-accent" />
+          </div>
+        ) : errorMsg ? (
+          <div className="py-16 text-center">
+            <p className="font-body text-sm text-red-400 mb-4">{errorMsg}</p>
+            <button
+              onClick={fetchLeads}
+              className="inline-flex items-center gap-2 rounded-sm border border-white/10 px-4 py-2 font-body text-xs text-white/70 transition hover:border-accent hover:text-accent"
+            >
+              <Loader2 className="h-3.5 w-3.5" />
+              Réessayer
+            </button>
           </div>
         ) : filtered.length === 0 ? (
           <div className="py-16 text-center">
