@@ -165,6 +165,17 @@ const AdminDashboard = () => {
           <div className="flex justify-center py-16">
             <Loader2 className="h-8 w-8 animate-spin text-accent" />
           </div>
+        ) : errorMsg ? (
+          <div className="py-16 text-center">
+            <p className="font-body text-sm text-red-400 mb-4">{errorMsg}</p>
+            <button
+              onClick={fetchLeads}
+              className="inline-flex items-center gap-2 rounded-sm border border-white/10 px-4 py-2 font-body text-xs text-white/70 transition hover:border-accent hover:text-accent"
+            >
+              <Loader2 className="h-3.5 w-3.5" />
+              Réessayer
+            </button>
+          </div>
         ) : filtered.length === 0 ? (
           <div className="py-16 text-center">
             <p className="font-body text-sm text-white/40">Aucun lead trouvé</p>
