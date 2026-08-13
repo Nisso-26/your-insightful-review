@@ -47,17 +47,28 @@ const AdminLogin = () => {
     setLoading(true);
     setError("");
 
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
-    });
-    setLoading(false);
+    try {
+      const { error: resetError } = await Promise.race([
+        supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/reset-password`,
+        }),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(() => reject(new Error("timeout")), 15000)
+        ),
+      ]);
 
-    if (resetError) {
-      setError("Impossible d'envoyer l'email. Vérifiez l'adresse saisie.");
-      return;
+      if (resetError) {
+        setError("Impossible d'envoyer l'email. Vérifiez l'adresse saisie.");
+        return;
+      }
+
+      setForgotSent(true);
+    } catch (err) {
+      console.error("AdminLogin resetPassword exception", err);
+      setError("Impossible d'envoyer l'email. Vérifiez votre connexion internet et réessayez.");
+    } finally {
+      setLoading(false);
     }
-
-    setForgotSent(true);
   };
 
   const switchMode = (next: "login" | "forgot") => {
