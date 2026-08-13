@@ -40,12 +40,27 @@ const AdminDashboard = () => {
 
   const fetchLeads = async () => {
     setLoading(true);
-    const { data } = await supabase
-      .from("contact_leads")
-      .select("*")
-      .order("created_at", { ascending: false });
-    setLeads((data as Lead[]) || []);
-    setLoading(false);
+    setErrorMsg(null);
+    try {
+      const result = await Promise.race([
+        supabase
+          .from("contact_leads")
+          .select("*")
+          .order("created_at", { ascending: false }),
+        new Promise<never>((_, reject) =>
+          window.setTimeout(() => reject(new Error("timeout")), 15000)
+        ),
+      ]);
+      setLeads((result.data as Lead[]) || []);
+    } catch (err) {
+      console.error("fetchLeads error or timeout", err);
+      setLeads([]);
+      setErrorMsg(
+        "Impossible de charger les leads. Vérifiez votre connexion internet."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const filtered = leads
