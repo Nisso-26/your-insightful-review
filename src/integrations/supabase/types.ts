@@ -56,6 +56,7 @@ export type Database = {
       contact_leads: {
         Row: {
           budget: string | null
+          city: string | null
           consent: boolean
           created_at: string
           email: string
@@ -68,6 +69,7 @@ export type Database = {
         }
         Insert: {
           budget?: string | null
+          city?: string | null
           consent?: boolean
           created_at?: string
           email: string
@@ -80,6 +82,7 @@ export type Database = {
         }
         Update: {
           budget?: string | null
+          city?: string | null
           consent?: boolean
           created_at?: string
           email?: string
