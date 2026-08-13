@@ -174,6 +174,20 @@ const EtudeForm = ({
           {objectifs.map((o) => (<option key={o} value={o}>{o}</option>))}
         </select>
       </div>
+      <div>
+        <label htmlFor={`${idPrefix}-city`} className={labelClass}>Ville de résidence</label>
+        <input id={`${idPrefix}-city`} name="city" type="text" autoComplete="address-level2" placeholder="Votre ville" className={inputClass} />
+      </div>
+      <label htmlFor={`${idPrefix}-consent`} className="flex items-start gap-3 cursor-pointer">
+        <input id={`${idPrefix}-consent`} type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required aria-required="true" className="mt-1 h-4 w-4 accent-accent" />
+        <span className="font-body text-xs text-muted-foreground">
+          J'accepte la{" "}
+          <Link to="/confidentialite" className="text-primary underline underline-offset-4 hover:text-accent">
+            politique de confidentialité
+          </Link>{" "}
+          <span aria-hidden="true" className="text-accent">*</span>
+        </span>
+      </label>
       <button
         type="submit"
         disabled={loading}
