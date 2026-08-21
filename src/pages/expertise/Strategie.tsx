@@ -7,7 +7,7 @@ import PillarClosingCta from "@/components/PillarClosingCta";
 
 const steps = [
   { title: "Analyse de capacité d'investissement", desc: "Taux d'endettement, TMI, apport disponible, effort d'épargne soutenable." },
-  { title: "Définition de la cible de rendement", desc: "Rendement locatif visé, horizon de plus-value, tolérance au risque." },
+  { title: "Définition de l'objectif", desc: "Rendement locatif visé, horizon de plus-value et tolérance au risque — ou, si votre demande porte sur votre résidence principale, structuration de l'acquisition en cohérence avec votre patrimoine locatif existant ou à venir." },
   { title: "Choix de la zone et de la typologie", desc: "Secteurs cohérents avec vos objectifs, arbitrage neuf/ancien, typologie de bien." },
   { title: "Structuration juridique", desc: "Régime d'imposition adapté, opportunité d'une SCI, statut LMNP le cas échéant." },
 ];
