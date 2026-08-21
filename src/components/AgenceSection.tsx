@@ -23,7 +23,7 @@ const AgenceSection = () => (
       eyebrow="L'agence"
       docRef="AGC-01"
       title="Un cabinet, un accompagnement complet"
-      intro="HUNTERS est né à Tours d'un constat simple : les investisseurs immobiliers sont accompagnés par étapes, jamais de bout en bout. Nous avons construit un cabinet qui réunit sous un même toit le conseil stratégique, la chasse, le suivi de travaux et la décoration."
+      intro="HUNTERS est né à Tours d'un constat simple, porté par son fondateur Anaïs Saizonou : les investisseurs immobiliers sont accompagnés par étapes, jamais de bout en bout. Nous avons construit un cabinet qui réunit sous un même toit le conseil stratégique, la chasse, le suivi de travaux et la décoration."
     />
 
     <section className="bg-background py-20">
