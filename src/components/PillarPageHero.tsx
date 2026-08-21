@@ -15,6 +15,7 @@ const PillarPageHero = ({ eyebrow, title, intro, docRef }: PillarPageHeroProps) 
       <h1 className="mt-6 max-w-3xl font-display text-[clamp(30px,4vw,40px)] leading-[1.15] text-primary">
         {title}
       </h1>
+      <div className="gold-bar mt-6" />
       <p className="mt-6 max-w-2xl font-body text-[15px] leading-[1.9] text-muted-foreground">
         {intro}
       </p>
