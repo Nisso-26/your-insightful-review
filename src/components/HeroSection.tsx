@@ -3,13 +3,7 @@ import EtudeForm from "@/components/EtudeForm";
 const HeroSection = () => (
   <section className="bg-[hsl(var(--hunters-cream))] py-16 lg:py-24">
     <div className="container mx-auto px-6">
-      {/* Top line */}
-      <div className="flex flex-col gap-2 border-b border-primary/10 pb-6 font-body text-[10px] uppercase tracking-[3px] text-accent sm:flex-row sm:items-center sm:justify-between">
-        <span>N 47.3941° · E 0.6848°</span>
-        <span>Réf. HTS—2026—0001 — Cabinet Hunters, Tours</span>
-      </div>
-
-      <div className="grid items-start gap-16 pt-16 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="grid items-start gap-16 pt-8 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p className="font-body text-[10px] font-medium uppercase tracking-[4px] text-accent mb-8">
             Cabinet de conseil en investissement immobilier — Tours
