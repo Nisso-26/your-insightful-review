@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
-import EtudeForm from "@/components/EtudeForm";
+import { Link } from "react-router-dom";
 
 const SLIDES = [
   "https://commons.wikimedia.org/wiki/Special:FilePath/Pont_Wilson_(Tours).JPG",
   "https://commons.wikimedia.org/wiki/Special:FilePath/Tours,%20H%C3%B4tel%20de%20Ville.JPG",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Tram_et_h%C3%B4tel_de_ville_de_Tours.JPG",
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Tram_et_h%C3%B4tel%20de%20ville%20de%20Tours.JPG",
 ];
 
 const HeroSection = () => {
@@ -20,7 +20,7 @@ const HeroSection = () => {
   const goTo = useCallback((i: number) => setActive(i), []);
 
   return (
-    <section className="relative isolate overflow-hidden py-16 lg:py-24">
+    <section className="relative isolate flex min-h-[440px] items-center overflow-hidden lg:min-h-[520px]">
       {/* Carrousel de fond */}
       <div className="absolute inset-0 -z-10">
         {SLIDES.map((src, i) => (
@@ -38,44 +38,42 @@ const HeroSection = () => {
             />
           </div>
         ))}
-        {/* Dégradé sombre : plus foncé en bas */}
+        {/* Dégradé sombre : plus foncé à gauche (lisibilité texte), plus clair à droite */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.45) 45%, rgba(15,23,42,0.85) 100%)",
+              "linear-gradient(to right, rgba(15,23,42,0.88) 0%, rgba(15,23,42,0.70) 40%, rgba(15,23,42,0.45) 100%)",
           }}
         />
       </div>
 
-      <div className="container mx-auto px-6">
-        <div className="grid items-start gap-16 pt-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="container mx-auto px-6 py-16 lg:py-24">
+        <div className="flex min-h-[440px] max-w-[460px] flex-col justify-center lg:min-h-[520px]">
+          <p className="font-body text-[10px] font-medium uppercase tracking-[4px] text-accent mb-8">
+            Cabinet de conseil en investissement immobilier — Tours
+          </p>
+          <h1 className="font-display text-[clamp(36px,5vw,56px)] font-normal leading-[1.12] text-white mb-8 drop-shadow-sm">
+            Une architecture de conseil,
+            <br />
+            dessinée pour durer
+          </h1>
+          <p className="font-body text-[15px] leading-[1.9] text-white/90 drop-shadow-sm mb-10">
+            Stratégie patrimoniale, chasse, suivi de travaux, décoration : quatre piliers,
+            un plan d'exécution unique, du premier trait à la remise des clés.
+          </p>
           <div>
-            <p className="font-body text-[10px] font-medium uppercase tracking-[4px] text-accent mb-8">
-              Cabinet de conseil en investissement immobilier — Tours
-            </p>
-            <h1 className="font-display text-[clamp(36px,5vw,56px)] font-normal leading-[1.12] text-white mb-8 drop-shadow-sm">
-              Une architecture de conseil,
-              <br />
-              dessinée pour durer
-            </h1>
-            <p className="max-w-xl font-body text-[15px] leading-[1.9] text-white/90 drop-shadow-sm">
-              Stratégie patrimoniale, chasse, suivi de travaux, décoration : quatre piliers,
-              un plan d'exécution unique, du premier trait à la remise des clés.
-            </p>
-          </div>
-
-          <div className="border border-primary/[0.16] bg-white p-8 lg:p-10">
-            <h2 className="font-display text-2xl text-primary">Étude patrimoniale gratuite</h2>
-            <p className="mt-2 mb-8 font-body text-[13px] text-muted-foreground">
-              Réponse motivée sous 24h ouvrées
-            </p>
-            <EtudeForm idPrefix="hero" />
+            <Link
+              to="/contact"
+              className="inline-block rounded-sm bg-accent px-7 py-3.5 font-body text-[10px] font-bold uppercase tracking-[1.5px] text-primary transition-opacity hover:opacity-90"
+            >
+              Demander une étude
+            </Link>
           </div>
         </div>
 
         {/* Indicateurs cliquables */}
-        <div className="mt-12 flex items-center justify-center gap-3">
+        <div className="mt-12 flex items-center gap-3">
           {SLIDES.map((_, i) => (
             <button
               key={i}
