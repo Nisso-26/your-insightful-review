@@ -1,6 +1,12 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CalloutBox from "@/components/CalloutBox";
 import PillarClosingCta from "@/components/PillarClosingCta";
+import photo7766 from "@/assets/realisations/DSC07766-2-HDR.jpg.asset.json";
+import photo7768 from "@/assets/realisations/DSC07768-2-HDR-Modifier.jpg.asset.json";
+import photo7772 from "@/assets/realisations/DSC07772-2-HDR.jpg.asset.json";
+import photo7779 from "@/assets/realisations/DSC07779-2-HDR.jpg.asset.json";
+import photo7784 from "@/assets/realisations/DSC07784-2-Modifier.jpg.asset.json";
+import photo7794 from "@/assets/realisations/DSC07794-2-HDR-Modifier.jpg.asset.json";
 
 /**
  * ═══════════════════════════════════════════════════════
@@ -35,10 +41,12 @@ const projects = [
   {
     label: "Mars 2025 — Quartier Tours Nord",
     photos: [
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07751-2-Modifier-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07753-2-HDR-Modifier-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07772-2-HDR-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07768-2-HDR-Modifier-1024x683.jpg",
+      photo7766.url,
+      photo7779.url,
+      photo7768.url,
+      photo7794.url,
+      photo7772.url,
+      photo7784.url,
     ],
   },
 ];
