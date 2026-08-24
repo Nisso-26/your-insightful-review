@@ -1,6 +1,12 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import CalloutBox from "@/components/CalloutBox";
 import PillarClosingCta from "@/components/PillarClosingCta";
+import photo7766 from "@/assets/realisations/DSC07766-2-HDR.jpg.asset.json";
+import photo7768 from "@/assets/realisations/DSC07768-2-HDR-Modifier.jpg.asset.json";
+import photo7772 from "@/assets/realisations/DSC07772-2-HDR.jpg.asset.json";
+import photo7779 from "@/assets/realisations/DSC07779-2-HDR.jpg.asset.json";
+import photo7784 from "@/assets/realisations/DSC07784-2-Modifier.jpg.asset.json";
+import photo7794 from "@/assets/realisations/DSC07794-2-HDR-Modifier.jpg.asset.json";
 
 /**
  * ═══════════════════════════════════════════════════════
