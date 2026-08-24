@@ -35,10 +35,12 @@ const projects = [
   {
     label: "Mars 2025 — Quartier Tours Nord",
     photos: [
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07751-2-Modifier-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07753-2-HDR-Modifier-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07772-2-HDR-1024x683.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/DSC07768-2-HDR-Modifier-1024x683.jpg",
+      photo7766.url,
+      photo7779.url,
+      photo7768.url,
+      photo7794.url,
+      photo7772.url,
+      photo7784.url,
     ],
   },
 ];
