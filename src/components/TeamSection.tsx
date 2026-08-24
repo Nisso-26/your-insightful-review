@@ -16,7 +16,7 @@ const member = {
   name: "Anaïs SAIZONOU",
   role: "Fondateur & Directeur Général",
   initials: "AS",
-  photo: "https://huntersimmobilier.fr/wp-content/uploads/2025/11/ANAIS-INDIV-2.jpg",
+  photo: anaisPhoto.url,
 };
 
 const TeamSection = () => (
