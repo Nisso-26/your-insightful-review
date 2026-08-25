@@ -38,6 +38,15 @@ import ts15 from "@/assets/realisations/avant/TS15.jpeg.asset.json";
 const projects = [
   {
     label: "Septembre 2025 — Quartier Tours Sud",
+    beforePhotos: [
+      ts1.url,
+      ts2.url,
+      ts4.url,
+      ts8.url,
+      ts12.url,
+      ts13.url,
+      ts15.url,
+    ],
     photos: [
       "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-363-769x1024.jpg",
       "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-36-769x1024.jpg",
