@@ -88,6 +88,38 @@ const RealisationsSection = () => {
                   </span>
                 </div>
 
+                {project.beforePhotos && (
+                  <div className="mb-6">
+                    <div
+                      className="mb-4 flex items-center gap-3"
+                      data-reveal
+                      data-reveal-delay={String(150 + pi * 100)}
+                    >
+                      <span className="h-px w-8 bg-accent/60" />
+                      <span className="font-body text-[10px] font-medium uppercase tracking-[3px] text-muted-foreground">
+                        Chantier — Tours Sud
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+                      {project.beforePhotos.map((src, i) => (
+                        <div
+                          key={`before-${i}`}
+                          data-reveal
+                          data-reveal-delay={String(200 + pi * 100 + i * 80)}
+                          className="group overflow-hidden"
+                        >
+                          <img
+                            src={src}
+                            alt={`Chantier Hunters Immobilier — ${project.label}`}
+                            loading="lazy"
+                            className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
                   {project.photos.map((src, i) => (
                     <div
