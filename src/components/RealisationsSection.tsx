@@ -7,6 +7,13 @@ import photo7772 from "@/assets/realisations/DSC07772-2-HDR.jpg.asset.json";
 import photo7779 from "@/assets/realisations/DSC07779-2-HDR.jpg.asset.json";
 import photo7784 from "@/assets/realisations/DSC07784-2-Modifier.jpg.asset.json";
 import photo7794 from "@/assets/realisations/DSC07794-2-HDR-Modifier.jpg.asset.json";
+import ts1 from "@/assets/realisations/avant/TS1.jpeg.asset.json";
+import ts2 from "@/assets/realisations/avant/TS2.jpeg.asset.json";
+import ts4 from "@/assets/realisations/avant/TS4.jpeg.asset.json";
+import ts8 from "@/assets/realisations/avant/TS8.jpeg.asset.json";
+import ts12 from "@/assets/realisations/avant/TS12.jpeg.asset.json";
+import ts13 from "@/assets/realisations/avant/TS13.jpeg.asset.json";
+import ts15 from "@/assets/realisations/avant/TS15.jpeg.asset.json";
 
 /**
  * ═══════════════════════════════════════════════════════
