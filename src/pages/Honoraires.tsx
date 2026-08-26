@@ -35,11 +35,10 @@ const pillars: PillarBlock[] = [
     desc: "Sourcing et sélection des biens, visites et analyse du potentiel, négociation du prix d'acquisition — chaque bien visité fait l'objet d'un rapport de visite détaillé.",
     headers: ["Budget d'acquisition", "Honoraires HT"],
     rows: [
-      { cols: ["Moins de 100 000 €", "Uniquement via l'accompagnement clé en main"], highlight: true },
-      { cols: ["Jusqu'à 200 000 €", "Forfait 6 500 €"] },
-      { cols: ["200 001 € — 500 000 €", "4 % du prix d'acquisition"] },
-      { cols: ["500 001 € — 1 000 000 €", "3 % du prix d'acquisition"] },
-      { cols: ["Au-delà de 1 000 000 €", "2 % du prix d'acquisition"] },
+      { cols: ["Jusqu'à 250 000 €", "Forfait 6 500 €"] },
+      { cols: ["250 001 € — 1 000 000 €", "3,5 % du prix d'acquisition"] },
+      { cols: ["1 000 001 € — 1 200 000 €", "2,75 % du prix d'acquisition"] },
+      { cols: ["Au-delà de 1 200 000 €", "2 % du prix d'acquisition"] },
     ],
   },
   {
@@ -48,9 +47,9 @@ const pillars: PillarBlock[] = [
     desc: "Cadrage du chantier et chiffrage, sélection d'artisans qualifiés, pilotage et suivi hebdomadaire, réception et levée des réserves — un compte-rendu de suivi vous est transmis à chaque étape clé.",
     headers: ["Budget travaux", "Honoraires HT"],
     rows: [
-      { cols: ["Jusqu'à 50 000 €", "2 000 € + 10 %"] },
-      { cols: ["50 001 € — 150 000 €", "2 000 € + 8 %"] },
-      { cols: ["Au-delà de 150 000 €", "2 000 € + 6 %"] },
+      { cols: ["Jusqu'à 150 000 €", "1 000 € + 9 %"] },
+      { cols: ["150 001 € — 250 000 €", "1 500 € + 7,5 %"] },
+      { cols: ["Au-delà de 250 000 €", "2 000 € + 6 %"] },
     ],
   },
   {
