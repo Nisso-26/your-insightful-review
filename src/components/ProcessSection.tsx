@@ -26,7 +26,7 @@ const ProcessSection = () => {
             <div className="overflow-hidden rounded-lg" data-reveal data-reveal-delay="200">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80"
-                alt="Méthode Hunters Immobilier"
+                alt="Intérieur d'un appartement rénové illustrant la méthode d'accompagnement Hunters Immobilier"
                 loading="lazy"
                 className="w-full object-cover rounded-lg"
               />
