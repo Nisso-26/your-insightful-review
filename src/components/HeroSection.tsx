@@ -30,21 +30,22 @@ const HeroSection = () => {
     <section className="relative isolate flex min-h-[440px] items-center overflow-hidden lg:min-h-[520px]">
       {/* Carrousel de fond */}
       <div className="absolute inset-0 -z-10">
-        {SLIDES.map((src, i) => (
+        {SLIDES.map((slide, i) => (
           <div
-            key={src}
+            key={slide.src}
             className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out"
             style={{ opacity: i === active ? 1 : 0 }}
             aria-hidden={i !== active}
           >
             <img
-              src={src}
-              alt=""
+              src={slide.src}
+              alt={slide.alt}
               className="h-full w-full object-cover"
               loading={i === 0 ? "eager" : "lazy"}
             />
           </div>
         ))}
+
         {/* Dégradé sombre : plus foncé à gauche (lisibilité texte), plus clair à droite */}
         <div
           className="absolute inset-0"
