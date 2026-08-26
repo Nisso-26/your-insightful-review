@@ -1,11 +1,18 @@
 import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
+import pontWilson from "@/assets/hero/pont-wilson-tours.jpg.asset.json";
+import hotelDeVille from "@/assets/hero/hotel-de-ville-tours.jpg.asset.json";
+import tramHotelDeVille from "@/assets/hero/tram-hotel-de-ville-tours.jpg.asset.json";
 
 const SLIDES = [
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Pont_Wilson_(Tours).JPG",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Tours,%20H%C3%B4tel%20de%20Ville.JPG",
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Tram_et_h%C3%B4tel%20de%20ville%20de%20Tours.JPG",
+  { src: pontWilson.url, alt: "Le pont Wilson enjambant la Loire à Tours" },
+  { src: hotelDeVille.url, alt: "La façade de l'hôtel de ville de Tours" },
+  {
+    src: tramHotelDeVille.url,
+    alt: "Le tramway passant devant l'hôtel de ville de Tours",
+  },
 ];
+
 
 const HeroSection = () => {
   const [active, setActive] = useState(0);
