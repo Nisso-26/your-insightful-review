@@ -16,7 +16,7 @@ const MentionsLegales = () => (
           <section className="border-t border-primary/15 pt-6">
             <h2 className="font-display text-xl text-primary mb-3">Éditeur du site</h2>
             <p>
-              <strong>HUNTERS SAS</strong><br />
+              <strong>HUNTERS SASU</strong><br />
               45 rue Michel Colombe, 37000 Tours<br />
               SIRET : 879 176 949 00029<br />
               Email : hunters@huntersimmobilier.fr<br />
@@ -27,7 +27,7 @@ const MentionsLegales = () => (
           <section className="border-t border-primary/15 pt-6">
             <h2 className="font-display text-xl text-primary mb-3">Activité réglementée</h2>
             <p>
-              HUNTERS SAS exerce l'activité de conseil en investissement immobilier et de chasse immobilière
+              HUNTERS SASU exerce l'activité de conseil en investissement immobilier et de chasse immobilière
               conformément à la <strong>Loi Hoguet n°70-9 du 2 janvier 1970</strong> et son décret d'application
               n°72-678 du 20 juillet 1972.
             </p>
@@ -50,7 +50,7 @@ const MentionsLegales = () => (
             <h2 className="font-display text-xl text-primary mb-3">Propriété intellectuelle</h2>
             <p>
               L'ensemble du contenu de ce site (textes, images, logo, graphismes) est la propriété exclusive
-              de HUNTERS SAS. Toute reproduction, même partielle, est interdite sans autorisation préalable.
+              de HUNTERS SASU. Toute reproduction, même partielle, est interdite sans autorisation préalable.
             </p>
           </section>
         </div>
