@@ -87,6 +87,7 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 
 const Dossier = ({ dossier }: { dossier: Dossier }) => {
   const [open, setOpen] = useState(false);
+  const panelId = `dossier-panel-${dossier.code.toLowerCase()}`;
 
   return (
     <div className="border border-primary/15 bg-white">
@@ -94,6 +95,7 @@ const Dossier = ({ dossier }: { dossier: Dossier }) => {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-controls={panelId}
         className="flex w-full items-center gap-4 bg-white px-6 py-5 text-left transition-colors hover:bg-muted/30 lg:px-8 lg:py-6"
       >
         <span className="font-display text-[15px] tracking-[2px] text-accent">
@@ -107,6 +109,7 @@ const Dossier = ({ dossier }: { dossier: Dossier }) => {
       </button>
 
       <div
+        id={panelId}
         className="grid transition-all duration-400 ease-out"
         style={{
           gridTemplateRows: open ? "1fr" : "0fr",
@@ -114,6 +117,7 @@ const Dossier = ({ dossier }: { dossier: Dossier }) => {
         }}
       >
         <div className="overflow-hidden">
+
           <div className="border-t border-primary/15 px-6 pb-10 pt-8 lg:px-8 lg:pb-12 lg:pt-10">
             {/* Descriptif */}
             <div className="mb-10 max-w-[620px] border-l-2 border-accent bg-muted/40 p-6 lg:p-8">
