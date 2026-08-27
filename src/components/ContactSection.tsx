@@ -13,13 +13,7 @@ const projectTypes = [
   "Autre",
 ];
 
-const budgets = [
-  "Moins de 100 000 €",
-  "100 000 € — 200 000 €",
-  "200 000 € — 400 000 €",
-  "400 000 € — 700 000 €",
-  "Plus de 700 000 €",
-];
+import { budgets } from "@/lib/budgets";
 
 const inputClass =
   "w-full rounded-sm bg-background border border-primary/20 px-4 py-3 font-body text-sm text-primary placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 transition-colors";

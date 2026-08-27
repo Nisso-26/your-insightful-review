@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     q: "Comment sont facturés vos honoraires ?",
-    a: "Notre grille tarifaire complète est en cours de finalisation. Chaque montant vous est communiqué individuellement dès le premier échange, avant tout engagement — voir notre page Honoraires.",
+    a: "Chaque pilier dispose d'une grille tarifaire dédiée, détaillée sur notre page Honoraires. Le montant exact de votre projet vous est confirmé dès le premier échange, avant tout engagement.",
   },
   {
     q: "Sous quel délai obtenez-vous une réponse à ma demande ?",

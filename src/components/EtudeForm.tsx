@@ -3,14 +3,7 @@ import { Check, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-
-const budgets = [
-  "Moins de 100 000 €",
-  "100 000 € — 200 000 €",
-  "200 000 € — 400 000 €",
-  "400 000 € — 700 000 €",
-  "Plus de 700 000 €",
-];
+import { budgets } from "@/lib/budgets";
 
 const objectifs = [
   "Rendement locatif",
