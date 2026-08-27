@@ -45,7 +45,7 @@ const Footer = () => (
             <Link to="/methode" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Notre méthode</Link>
             <Link to="/realisations" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réalisations</Link>
             <Link to="/temoignages" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Témoignages</Link>
-            <Link to="/zones-intervention" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Zones d'intervention</Link>
+            <Link to="/agence#zones-intervention" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Zones d'intervention</Link>
             <Link to="/faq" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">FAQ</Link>
             <Link to="/contact" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Réserver un audit</Link>
             <Link to="/rejoindre" className="block font-body text-sm text-white/50 hover:text-accent transition-colors">Nous rejoindre</Link>

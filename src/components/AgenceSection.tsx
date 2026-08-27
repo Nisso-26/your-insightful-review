@@ -1,5 +1,6 @@
 import PillarPageHero from "@/components/PillarPageHero";
 import NumberedSteps from "@/components/NumberedSteps";
+import CalloutBox from "@/components/CalloutBox";
 import PillarClosingCta from "@/components/PillarClosingCta";
 
 const steps = [
@@ -15,6 +16,15 @@ const steps = [
     title: "Un interlocuteur unique",
     desc: "De la stratégie à la mise en location, un seul conseiller suit votre dossier — vous ne recommencez jamais l'explication de votre projet.",
   },
+];
+
+const zones = [
+  { num: "I.", title: "Tours", desc: "Centre historique, quartiers résidentiels, secteur en tension locative." },
+  { num: "II.", title: "Joué-lès-Tours", desc: "Deuxième ville de l'agglomération, marché résidentiel dynamique." },
+  { num: "III.", title: "Saint-Cyr-sur-Loire", desc: "Secteur prisé en bord de Loire, forte demande locative." },
+  { num: "IV.", title: "Chambray-lès-Tours", desc: "Pôle économique et résidentiel au sud de l'agglomération." },
+  { num: "V.", title: "Fondettes", desc: "Cadre résidentiel recherché, proximité immédiate de Tours." },
+  { num: "VI.", title: "Saint-Pierre-des-Corps", desc: "Pôle ferroviaire, marché locatif accessible." },
 ];
 
 const AgenceSection = () => (
@@ -53,6 +63,33 @@ const AgenceSection = () => (
           Méthode
         </p>
         <NumberedSteps items={steps} />
+      </div>
+    </section>
+
+    {/* Zones d'intervention */}
+    <section id="zones-intervention" className="bg-background py-24">
+      <div className="container mx-auto px-6">
+        <p className="mb-6 font-body text-[10px] font-medium uppercase tracking-[4px] text-accent">
+          Zones d'intervention
+        </p>
+        <h2 className="mb-10 font-display text-[clamp(30px,4vw,46px)] leading-[1.15] text-primary">
+          Tours et 20 km à la ronde
+        </h2>
+        <div className="grid border-t border-l border-primary/15 sm:grid-cols-2 lg:grid-cols-3">
+          {zones.map((z) => (
+            <div key={z.title} className="border-b border-r border-primary/15 p-8 lg:p-10">
+              <span className="font-display text-lg text-accent">{z.num}</span>
+              <h3 className="font-display text-2xl text-primary mt-3 mb-4">{z.title}</h3>
+              <p className="font-body text-sm leading-relaxed text-muted-foreground">{z.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12">
+          <CalloutBox
+            title="Une zone élargie sur demande"
+            text="Notre zone d'intervention principale couvre Tours et 20 km à la ronde. Certains projets nous amènent au-delà, notamment vers Amboise — n'hésitez pas à nous soumettre votre recherche, même hors de ce périmètre."
+          />
+        </div>
       </div>
     </section>
 

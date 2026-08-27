@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,7 +17,6 @@ import Decoration from "./pages/expertise/Decoration";
 import Equipe from "./pages/Equipe";
 import Temoignages from "./pages/Temoignages";
 import Contact from "./pages/Contact";
-import ZonesIntervention from "./pages/ZonesIntervention";
 import Rejoindre from "./pages/Rejoindre";
 import Faq from "./pages/Faq";
 import MentionsLegales from "./pages/MentionsLegales";
@@ -53,7 +52,7 @@ const App = () => (
             <Route path="/realisations" element={<Realisations />} />
             <Route path="/temoignages" element={<Temoignages />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/zones-intervention" element={<ZonesIntervention />} />
+            <Route path="/zones-intervention" element={<Navigate to="/agence#zones-intervention" replace />} />
             <Route path="/rejoindre" element={<Rejoindre />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
