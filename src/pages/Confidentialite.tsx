@@ -16,7 +16,7 @@ const Confidentialite = () => (
           <section className="border-t border-primary/15 pt-6">
             <h2 className="font-display text-xl text-primary mb-3">Responsable du traitement</h2>
             <p>
-              <strong>HUNTERS SAS</strong> — 45 rue Michel Colombe, 37000 Tours<br />
+              <strong>HUNTERS SASU</strong> — 45 rue Michel Colombe, 37000 Tours<br />
               Email : hunters@huntersimmobilier.fr
             </p>
           </section>
