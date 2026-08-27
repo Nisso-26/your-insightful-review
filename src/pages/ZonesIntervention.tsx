@@ -6,9 +6,11 @@ import PillarClosingCta from "@/components/PillarClosingCta";
 
 const zones = [
   { num: "I.", title: "Tours", desc: "Centre historique, quartiers résidentiels, secteur en tension locative." },
-  { num: "II.", title: "Amboise", desc: "Val de Loire, patrimoine bâti, marché touristique et résidentiel." },
-  { num: "III.", title: "Chinon", desc: "Sud Touraine, opportunités de rendement, prix d'entrée accessibles." },
-  { num: "IV.", title: "Loches", desc: "Marché de niche, biens de caractère, investissement patrimonial." },
+  { num: "II.", title: "Joué-lès-Tours", desc: "Deuxième ville de l'agglomération, marché résidentiel dynamique." },
+  { num: "III.", title: "Saint-Cyr-sur-Loire", desc: "Secteur prisé en bord de Loire, forte demande locative." },
+  { num: "IV.", title: "Chambray-lès-Tours", desc: "Pôle économique et résidentiel au sud de l'agglomération." },
+  { num: "V.", title: "Fondettes", desc: "Cadre résidentiel recherché, proximité immédiate de Tours." },
+  { num: "VI.", title: "Saint-Pierre-des-Corps", desc: "Pôle ferroviaire, marché locatif accessible." },
 ];
 
 const ZonesIntervention = () => (
