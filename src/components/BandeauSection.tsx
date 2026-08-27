@@ -8,8 +8,8 @@ const BandeauSection = () => (
           Zones d'intervention
         </p>
         <p className="font-display text-xl text-primary sm:text-2xl">
-          Tours · Joué-lès-Tours · Saint-Cyr-sur-Loire · Amboise{" "}
-          <span className="font-body text-sm text-muted-foreground">et Indre-et-Loire</span>
+          Tours · Joué-lès-Tours · Saint-Cyr-sur-Loire · Chambray-lès-Tours{" "}
+          <span className="font-body text-sm text-muted-foreground">et jusqu'à Amboise</span>
         </p>
       </div>
       <Link
