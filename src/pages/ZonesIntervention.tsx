@@ -25,12 +25,12 @@ const ZonesIntervention = () => (
       eyebrow="Périmètre d'intervention"
       docRef="ZON-01"
       title="Zones d'intervention"
-      intro="Basé à Tours, le cabinet HUNTERS opère sur l'ensemble de l'Indre-et-Loire et des départements limitrophes, avec une connaissance fine des marchés locaux."
+      intro="Basé à Tours, le cabinet HUNTERS intervient sur Tours et 20 km à la ronde, avec une connaissance fine des marchés locaux."
     />
 
     <section className="bg-background pt-20">
       <div className="container mx-auto px-6">
-        <div className="grid border-t border-l border-primary/15 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid border-t border-l border-primary/15 sm:grid-cols-2 lg:grid-cols-3">
           {zones.map((z) => (
             <div key={z.title} className="border-b border-r border-primary/15 p-8 lg:p-10">
               <span className="font-display text-lg text-accent">{z.num}</span>
@@ -45,8 +45,8 @@ const ZonesIntervention = () => (
     <section className="bg-background py-20">
       <div className="container mx-auto px-6">
         <CalloutBox
-          title="Une expertise territoriale, pas une couverture nationale"
-          text="Nous concentrons notre action sur l'Indre-et-Loire pour garantir une connaissance précise de chaque marché local — une condition de la qualité de nos recommandations."
+          title="Une zone élargie sur demande"
+          text="Notre zone d'intervention principale couvre Tours et 20 km à la ronde. Certains projets nous amènent au-delà, notamment vers Amboise — n'hésitez pas à nous soumettre votre recherche, même hors de ce périmètre."
         />
       </div>
     </section>
