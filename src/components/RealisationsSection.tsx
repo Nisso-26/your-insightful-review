@@ -135,7 +135,7 @@ const Dossier = ({ dossier }: { dossier: Dossier }) => {
                     <div key={`before-${i}`} className="group overflow-hidden">
                       <img
                         src={src}
-                        alt={`Chantier Hunters Immobilier — ${dossier.title}`}
+                        alt={`Chantier HUNTERS — ${dossier.title} — photo ${i + 1}`}
                         loading="lazy"
                         className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
@@ -153,7 +153,7 @@ const Dossier = ({ dossier }: { dossier: Dossier }) => {
                   <div key={i} className="group overflow-hidden">
                     <img
                       src={src}
-                      alt={`Réalisation Hunters Immobilier — ${dossier.title}`}
+                      alt={`Réalisation HUNTERS — ${dossier.title} — photo ${i + 1}`}
                       loading="lazy"
                       className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-80"
                     />

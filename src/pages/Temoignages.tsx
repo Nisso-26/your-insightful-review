@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 const Temoignages = () => (
   <Layout>
     <SEO
-      title="Témoignages clients | HUNTERS Immobilier Tours"
+      title="Témoignages clients | HUNTERS — Tours"
       description="Découvrez les retours de nos clients investisseurs, publiés au fil des accompagnements menés par le cabinet HUNTERS à Tours."
       path="/temoignages"
     />

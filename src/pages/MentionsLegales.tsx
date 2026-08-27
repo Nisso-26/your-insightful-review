@@ -33,7 +33,7 @@ const MentionsLegales = () => (
             </p>
             <ul className="mt-3 space-y-1 list-disc pl-5">
               <li>Carte professionnelle CPI n° : en cours d'enregistrement</li>
-              <li>Garantie financière : en cours de souscription</li>
+              <li>Garantie financière : non applicable — HUNTERS SASU ne reçoit ni ne détient aucun fonds, effets ou valeurs pour le compte de tiers (article 3 de la loi n°70-9 du 2 janvier 1970)</li>
               <li>Assurance RCP : en cours de souscription</li>
             </ul>
             <p className="mt-3 text-xs text-muted-foreground/70 italic">
