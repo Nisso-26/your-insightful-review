@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { budgets } from "@/lib/budgets";
 
 const projectTypes = [
   "Investissement locatif (résidentiel)",
@@ -11,14 +12,6 @@ const projectTypes = [
   "Colocation / LMNP meublé",
   "Résidence principale ou secondaire",
   "Autre",
-];
-
-const budgets = [
-  "Moins de 100 000 €",
-  "100 000 € — 200 000 €",
-  "200 000 € — 400 000 €",
-  "400 000 € — 700 000 €",
-  "Plus de 700 000 €",
 ];
 
 const inputClass =
