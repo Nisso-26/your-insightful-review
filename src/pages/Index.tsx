@@ -16,6 +16,7 @@ const Index = () => (
       path="/"
     />
     <HeroSection />
+    <WhyHuntersSection />
     <ExpertiseSection />
     <StatsSection />
     <BandeauSection />
