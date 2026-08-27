@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
+import WhyHuntersSection from "@/components/WhyHuntersSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import StatsSection from "@/components/StatsSection";
 import BandeauSection from "@/components/BandeauSection";
@@ -15,6 +16,7 @@ const Index = () => (
       path="/"
     />
     <HeroSection />
+    <WhyHuntersSection />
     <ExpertiseSection />
     <StatsSection />
     <BandeauSection />
