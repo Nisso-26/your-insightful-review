@@ -54,6 +54,9 @@ const TeamSection = () => (
             <p className="mt-2 font-body text-[10px] font-medium uppercase tracking-[3px] text-accent">
               {member.role}
             </p>
+            <p className="mt-4 font-body text-sm leading-relaxed text-muted-foreground">
+              Investisseur particulier avant de devenir professionnel, Anaïs a fondé HUNTERS en 2019 après s'être installé à Tours et avoir eu le coup de cœur pour son marché immobilier. Formé au droit des affaires, il apporte au cabinet une rigueur juridique appliquée directement au conseil patrimonial.
+            </p>
           </div>
         </div>
 
