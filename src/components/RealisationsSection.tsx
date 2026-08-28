@@ -36,7 +36,8 @@ const projects: Dossier[] = [
   {
     code: "REA-02",
     title: "Septembre 2025 — Quartier Tours Sud",
-    descriptif: "À compléter.",
+    descriptif:
+      "Appartement T4 de 81 m², entièrement rénové pour un projet de colocation étudiante. Reprise complète des sols et des peintures dans l'ensemble du logement, cuisine intégralement renouvelée — équipements et électroménager compris. Ameublement complet du bien, pièce par pièce, pour l'accueil de colocataires.",
     beforePhotos: [
       ts1.url,
       ts2.url,
