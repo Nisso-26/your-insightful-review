@@ -6,7 +6,7 @@ const MentionsLegales = () => (
   <Layout>
     <SEO
       title="Mentions légales | HUNTERS"
-      description="Mentions légales du site HUNTERS Immobilier — éditeur, hébergement et responsabilités."
+      description="Mentions légales du site HUNTERS — éditeur, hébergement et responsabilités."
       path="/mentions-legales"
     />
     <PillarPageHero eyebrow="Informations légales" docRef="LEG-01" title="Mentions légales" intro="" />
@@ -32,9 +32,9 @@ const MentionsLegales = () => (
               n°72-678 du 20 juillet 1972.
             </p>
             <ul className="mt-3 space-y-1 list-disc pl-5">
-              <li>Carte professionnelle CPI n° : en cours d'enregistrement</li>
+              <li>Carte professionnelle CPI : non détenue à ce jour</li>
               <li>Garantie financière : non applicable — HUNTERS SASU ne reçoit ni ne détient aucun fonds, effets ou valeurs pour le compte de tiers (article 3 de la loi n°70-9 du 2 janvier 1970)</li>
-              <li>Assurance RCP : en cours de souscription</li>
+              <li>Assurance RCP : couverture en cours de vérification auprès de notre assureur</li>
             </ul>
             <p className="mt-3 text-xs text-muted-foreground/70 italic">
               Ces mentions seront mises à jour dès obtention des justificatifs.
