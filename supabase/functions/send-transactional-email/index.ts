@@ -56,14 +56,14 @@ Deno.serve(async (req) => {
 
   // Parse request body
   let templateName: string
-  let recipientEmail: string
+  let leadId: string | undefined
   let idempotencyKey: string
   let messageId: string
   let templateData: Record<string, any> = {}
   try {
     const body = await req.json()
     templateName = body.templateName || body.template_name
-    recipientEmail = body.recipientEmail || body.recipient_email
+    leadId = body.leadId || body.lead_id
     messageId = crypto.randomUUID()
     idempotencyKey = body.idempotencyKey || body.idempotency_key || messageId
     if (body.templateData && typeof body.templateData === 'object') {
@@ -78,6 +78,7 @@ Deno.serve(async (req) => {
       }
     )
   }
+
 
   if (!templateName) {
     return new Response(
@@ -105,25 +106,58 @@ Deno.serve(async (req) => {
     )
   }
 
-  // Resolve effective recipient: template-level `to` takes precedence over
-  // the caller-provided recipientEmail. This allows notification templates
-  // to always send to a fixed address (e.g., site owner from env var).
-  const effectiveRecipient = template.to || recipientEmail
-
-  if (!effectiveRecipient) {
-    return new Response(
-      JSON.stringify({
-        error: 'recipientEmail is required (unless the template defines a fixed recipient)',
-      }),
-      {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      }
-    )
-  }
-
   // Create Supabase client with service role (bypasses RLS)
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
+  // Resolve effective recipient.
+  // - Templates with a fixed `to` in the registry always send there.
+  // - Otherwise the recipient MUST be derived server-side from a real lead row
+  //   (`leadId`); caller-supplied addresses are never trusted.
+  let effectiveRecipient: string
+
+  if (template.to) {
+    effectiveRecipient = template.to
+  } else {
+    const uuidRe =
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+    if (!leadId || !uuidRe.test(leadId)) {
+      return new Response(
+        JSON.stringify({ error: 'leadId (uuid) is required for this template' }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      )
+    }
+
+    const { data: lead, error: leadError } = await supabase
+      .from('contact_leads')
+      .select('email, first_name')
+      .eq('id', leadId)
+      .maybeSingle()
+
+    if (leadError) {
+      console.error('Lead lookup failed', { error: leadError })
+      return new Response(
+        JSON.stringify({ error: 'Failed to resolve recipient' }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      )
+    }
+
+    if (!lead || !lead.email) {
+      return new Response(JSON.stringify({ error: 'Lead not found' }), {
+        status: 404,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      })
+    }
+
+    effectiveRecipient = lead.email
+    templateData = { ...templateData, firstName: lead.first_name }
+  }
+
 
   // 2. Check suppression list (fail-closed: if we can't verify, don't send)
   const { data: suppressed, error: suppressionError } = await supabase

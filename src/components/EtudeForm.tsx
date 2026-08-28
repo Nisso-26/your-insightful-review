@@ -76,12 +76,12 @@ const EtudeForm = ({
         .invoke("send-transactional-email", {
           body: {
             templateName: "contact-confirmation",
-            recipientEmail: email,
+            leadId: id,
             idempotencyKey: `contact-confirm-${id}`,
-            templateData: { firstName },
           },
         })
         .catch((err) => console.error("Confirmation email failed", err));
+
 
       supabase.functions
         .invoke("send-transactional-email", {
