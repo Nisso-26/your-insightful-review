@@ -1,6 +1,6 @@
 import PillarPageHero from "@/components/PillarPageHero";
 import PillarClosingCta from "@/components/PillarClosingCta";
-import anaisPhoto from "@/assets/anais.jpg.asset.json";
+import anaisPhoto from "@/assets/anais-v2.jpg.asset.json";
 
 const categories = [
   {
