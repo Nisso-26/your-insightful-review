@@ -56,14 +56,14 @@ Deno.serve(async (req) => {
 
   // Parse request body
   let templateName: string
-  let recipientEmail: string
+  let leadId: string | undefined
   let idempotencyKey: string
   let messageId: string
   let templateData: Record<string, any> = {}
   try {
     const body = await req.json()
     templateName = body.templateName || body.template_name
-    recipientEmail = body.recipientEmail || body.recipient_email
+    leadId = body.leadId || body.lead_id
     messageId = crypto.randomUUID()
     idempotencyKey = body.idempotencyKey || body.idempotency_key || messageId
     if (body.templateData && typeof body.templateData === 'object') {
@@ -78,6 +78,7 @@ Deno.serve(async (req) => {
       }
     )
   }
+
 
   if (!templateName) {
     return new Response(
