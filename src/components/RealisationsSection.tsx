@@ -47,10 +47,14 @@ const projects: Dossier[] = [
       ts15.url,
     ],
     photos: [
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-363-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-36-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-352-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-353-769x1024.jpg",
+      ap9.url,
+      ap13.url,
+      ap7.url,
+      ap2.url,
+      ap8.url,
+      ap6.url,
+      ap12.url,
+      ap3.url,
     ],
   },
   {
