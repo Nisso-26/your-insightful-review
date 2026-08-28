@@ -15,6 +15,14 @@ import ts8 from "@/assets/realisations/avant/TS8.jpeg.asset.json";
 import ts12 from "@/assets/realisations/avant/TS12.jpeg.asset.json";
 import ts13 from "@/assets/realisations/avant/TS13.jpeg.asset.json";
 import ts15 from "@/assets/realisations/avant/TS15.jpeg.asset.json";
+import ap2 from "@/assets/realisations/apres/coloc_2.jpg.asset.json";
+import ap3 from "@/assets/realisations/apres/Coloc_3.jpg.asset.json";
+import ap6 from "@/assets/realisations/apres/Coloc_6.jpg.asset.json";
+import ap7 from "@/assets/realisations/apres/Coloc_7.jpg.asset.json";
+import ap8 from "@/assets/realisations/apres/Coloc_8.jpg.asset.json";
+import ap9 from "@/assets/realisations/apres/Coloc_9.jpg.asset.json";
+import ap12 from "@/assets/realisations/apres/Coloc_12.jpg.asset.json";
+import ap13 from "@/assets/realisations/apres/Coloc_13.jpg.asset.json";
 
 interface Dossier {
   code: string;
@@ -39,10 +47,14 @@ const projects: Dossier[] = [
       ts15.url,
     ],
     photos: [
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-363-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-36-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-352-769x1024.jpg",
-      "https://huntersimmobilier.fr/wp-content/uploads/2025/11/PHOTO-2025-10-21-14-43-353-769x1024.jpg",
+      ap9.url,
+      ap13.url,
+      ap7.url,
+      ap2.url,
+      ap8.url,
+      ap6.url,
+      ap12.url,
+      ap3.url,
     ],
   },
   {
