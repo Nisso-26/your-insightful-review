@@ -76,11 +76,11 @@ const ContactSection = () => {
       supabase.functions.invoke("send-transactional-email", {
         body: {
           templateName: "contact-confirmation",
-          recipientEmail: email,
+          leadId: id,
           idempotencyKey: `contact-confirm-${id}`,
-          templateData: { firstName },
         },
       }).catch((err) => console.error("Confirmation email failed", err));
+
 
       // Notify HUNTERS internally (fire-and-forget)
       supabase.functions.invoke("send-transactional-email", {
