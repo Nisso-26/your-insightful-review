@@ -17,3 +17,6 @@ verify_jwt = false
 
 [functions.sync-webhook-config]
 verify_jwt = false
+
+[functions.sync-lead-to-workspace]
+verify_jwt = false
