@@ -60,12 +60,15 @@ export type Database = {
           consent: boolean
           created_at: string
           email: string
+          erreur_transmission: string | null
           first_name: string
           id: string
           last_name: string
           message: string | null
           phone: string | null
           project_type: string | null
+          reference: string | null
+          statut_transmission: string
         }
         Insert: {
           budget?: string | null
@@ -73,12 +76,15 @@ export type Database = {
           consent?: boolean
           created_at?: string
           email: string
+          erreur_transmission?: string | null
           first_name: string
           id?: string
           last_name: string
           message?: string | null
           phone?: string | null
           project_type?: string | null
+          reference?: string | null
+          statut_transmission?: string
         }
         Update: {
           budget?: string | null
@@ -86,12 +92,15 @@ export type Database = {
           consent?: boolean
           created_at?: string
           email?: string
+          erreur_transmission?: string | null
           first_name?: string
           id?: string
           last_name?: string
           message?: string | null
           phone?: string | null
           project_type?: string | null
+          reference?: string | null
+          statut_transmission?: string
         }
         Relationships: []
       }
