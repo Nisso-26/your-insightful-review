@@ -8,6 +8,13 @@
       "when": 1790320637113,
       "tag": "0000_lead_workspace_sync",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790850809285,
+      "tag": "0001_add_motif_ecarte",
+      "breakpoints": true
     }
   ]
 }

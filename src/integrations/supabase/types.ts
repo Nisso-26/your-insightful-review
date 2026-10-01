@@ -65,6 +65,7 @@ export type Database = {
           id: string
           last_name: string
           message: string | null
+          motif_ecarte: string | null
           phone: string | null
           project_type: string | null
           reference: string | null
@@ -81,6 +82,7 @@ export type Database = {
           id?: string
           last_name: string
           message?: string | null
+          motif_ecarte?: string | null
           phone?: string | null
           project_type?: string | null
           reference?: string | null
@@ -97,6 +99,7 @@ export type Database = {
           id?: string
           last_name?: string
           message?: string | null
+          motif_ecarte?: string | null
           phone?: string | null
           project_type?: string | null
           reference?: string | null
