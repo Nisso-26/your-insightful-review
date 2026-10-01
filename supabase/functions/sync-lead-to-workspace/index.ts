@@ -125,6 +125,7 @@ Deno.serve(async (req) => {
       statut_transmission: "transmis",
       reference: String(data.prospect_id),
       erreur_transmission: null,
+      ...(motif ? { motif_ecarte: motif } : {}),
     })
     .eq("id", leadId);
 
