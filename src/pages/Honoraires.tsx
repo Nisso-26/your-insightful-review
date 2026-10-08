@@ -15,6 +15,7 @@ interface PillarBlock {
   desc: string;
   headers: string[];
   rows: PillarRow[];
+  note?: string;
 }
 
 const pillars: PillarBlock[] = [
@@ -56,12 +57,13 @@ const pillars: PillarBlock[] = [
     num: "04",
     title: "Décoration & ameublement",
     desc: "Plan d'aménagement et choix des matériaux, sélection et coordination du mobilier, installation et mise en valeur finale — livrés avec un book décoration et un reportage photo du bien achevé.",
-    headers: ["Budget décoration", "Honoraires HT"],
+    headers: ["Montant des achats HT", "Honoraires HT"],
     rows: [
-      { cols: ["Jusqu'à 20 000 €", "2 500 € + 15 %"] },
-      { cols: ["20 001 € — 50 000 €", "2 500 € + 12 %"] },
-      { cols: ["Au-delà de 50 000 €", "2 500 € + 10 %"] },
+      { cols: ["Jusqu'à 20 000 €", "1 500 € + 10 %"] },
+      { cols: ["20 001 € — 50 000 €", "2 000 € + 8 %"] },
+      { cols: ["Au-delà de 50 000 €", "3 000 € + 6 %"] },
     ],
+    note: "Le pourcentage s'applique sur la totalité du montant HT des achats de mobilier et de décoration, hors travaux.",
   },
 ];
 
@@ -141,6 +143,12 @@ const Honoraires = () => (
                   </tbody>
                 </table>
               </div>
+
+              {p.note && (
+                <p className="mt-4 font-body text-[13px] italic text-muted-foreground">
+                  {p.note}
+                </p>
+              )}
             </div>
           ))}
         </div>
